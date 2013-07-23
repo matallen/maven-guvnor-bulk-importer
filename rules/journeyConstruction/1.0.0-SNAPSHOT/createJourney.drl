@@ -1,0 +1,27 @@
+package net.atos.smartticket.rules.journey.construction
+
+import net.atos.smartticket.domain.Tap;
+import net.atos.smartticket.domain.Tap.Status;
+import org.joda.time.DateTime;
+
+declare net.atos.smartticket.domain.Tap
+   @role(event)
+   @timestamp(tapTime.toDate)
+end;
+
+rule "two-tap journey constructor"
+when
+	$tap1:Tap($mediaId:mediaId, $txId:transactionId, $stationId:stationId) from entry-point "TapStream"
+	$tap2:Tap(
+		mediaId==$mediaId, 
+		transactionId!=$txId, 
+		stationId!=$stationId, 
+		this after[40m, 0] $tap1) from entry-point "TapStream"
+then
+	insert(new Journey($tap1, $tap2));
+	$tap1.setStatus(Status.PROCESSED);
+	$tap2.setStatus(Status.PROCESSED);
+	retract($tap1);
+	retract($tap2);
+
+end

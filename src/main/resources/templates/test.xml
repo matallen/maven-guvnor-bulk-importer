@@ -1,0 +1,717 @@
+
+
+
+<sv:node sv:name="drools:packagesnapshot_area">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>nt:folder</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:created" sv:type="Date">
+		<sv:value>2013-07-23T08:46:24.404+01:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+
+
+	<sv:node sv:name="rules1.ping">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>nt:folder</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-07-23T08:51:39.390+01:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+		<sv:node sv:name="1.2.3-SNAPSHOT">
+			<sv:property sv:name="jcr:primaryType" sv:type="Name">
+				<sv:value>drools:packageNodeType</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:uuid" sv:type="String">
+				<sv:value>57a39973-08f9-4189-9177-d5c5c0a382b3</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:archive" sv:type="Boolean">
+				<sv:value>false</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:binaryUpToDate" sv:type="Boolean">
+				<sv:value>true</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:checkinComment" sv:type="String">
+				<sv:value></sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:compiledPackage" sv:type="Binary">
+				<sv:value>rO0ABXVyABpbTG9yZy5kcm9vbHMucnVsZS5QYWNrYWdlO5njmBFNJRuOAgAAeHAAAAABc3IAF29yZy5kcm9vbHMucnVsZS5QYWNrYWdlAAAAAAAAAf4MAAB4cHNyACZvcmcuZHJvb2xzLnJ1bGUuRGlhbGVjdFJ1bnRpbWVSZWdpc3RyeQAAAAAAAAH+DAAAeHBzcgARamF2YS51dGlsLkhhc2hNYXAFB9rBwxZg0QMAAkYACmxvYWRGYWN0b3JJAAl0aHJlc2hvbGR4cD9AAAAAAAAMdwgAAAAQAAAAAnQABG12ZWxzcgAmb3JnLmRyb29scy5ydWxlLk1WRUxEaWFsZWN0UnVudGltZURhdGGyZRVTbUFSZAwAAHhwc3EAfgAGP0AAAAAAAAx3CAAAABAAAAAAeHNyABFqYXZhLnV0aWwuSGFzaFNldLpEhZWWuLc0AwAAeHB3DAAAABA/QAAAAAAAAnQAC3J1bGVzMS5waW5ndAAJamF2YS5sYW5neHNyABlqYXZhLnV0aWwuSWRlbnRpdHlIYXNoTWFwcaJlATPy6YADAAFJAARzaXpleHAAAAAAdwQAAAAAeHNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAAAdwQAAAAKeHh0AARqYXZhc3IAJm9yZy5kcm9vbHMucnVsZS5KYXZhRGlhbGVjdFJ1bnRpbWVEYXRhAAAAAAAAAf4MAAB4cHcBAHVyAAJbQqzzF/gGCFTgAgAAeHAAAA3trO0ABXcEAAAAAnQAX3J1bGVzMS9waW5nL1J1bGVfcGluZ190ZXN0X3J1bGVfNjg1ZTVmZjdmYzVkNDhmYTgwN2RiMzg5Yjc1NjBhMzBEZWZhdWx0Q29uc2VxdWVuY2VJbnZva2VyLmNsYXNzdXIAAltCrPMX+AYIVOACAAB4cAAACVPK/rq+AAAAMQB1AQBZcnVsZXMxL3BpbmcvUnVsZV9waW5nX3Rlc3RfcnVsZV82ODVlNWZmN2ZjNWQ0OGZhODA3ZGIzODliNzU2MGEzMERlZmF1bHRDb25zZXF1ZW5jZUludm9rZXIHAAEBABBqYXZhL2xhbmcvT2JqZWN0BwADAQAab3JnL2Ryb29scy9zcGkvQ29uc2VxdWVuY2UHAAUBAB5vcmcvZHJvb2xzL3NwaS9Db21waWxlZEludm9rZXIHAAcBABBzZXJpYWxWZXJzaW9uVUlEAQABSgUAAAAAAAAB/gEABjxpbml0PgEAAygpVgwADQAOCgAEAA8BAAhoYXNoQ29kZQEAAygpSQMVwYvIAQARZ2V0TWV0aG9kQnl0ZWNvZGUBABIoKUxqYXZhL3V0aWwvTGlzdDsBAAhnZXRDbGFzcwEAEygpTGphdmEvbGFuZy9DbGFzczsMABYAFwoABAAYAQA0UnVsZV9waW5nX3Rlc3RfcnVsZV82ODVlNWZmN2ZjNWQ0OGZhODA3ZGIzODliNzU2MGEzMAgAGgEAC3J1bGVzMS5waW5nCAAcAQASZGVmYXVsdENvbnNlcXVlbmNlCAAeAQBGcnVsZXMxL3BpbmcvUnVsZV9waW5nX3Rlc3RfcnVsZV82ODVlNWZmN2ZjNWQ0OGZhODA3ZGIzODliNzU2MGEzMC5jbGFzcwgAIAEAFG9yZy9kcm9vbHMvcnVsZS9SdWxlBwAiAQBrKExqYXZhL2xhbmcvQ2xhc3M7TGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9TdHJpbmc7TGphdmEvbGFuZy9TdHJpbmc7KUxqYXZhL3V0aWwvTGlzdDsMABQAJAoAIwAlAQAGZXF1YWxzAQAVKExqYXZhL2xhbmcvT2JqZWN0OylaDAAUABUKAAIAKQsACAApAQApb3JnL2Ryb29scy9jb3JlL3V0aWwvYXNtL01ldGhvZENvbXBhcmF0b3IHACwBAA9jb21wYXJlQnl0ZWNvZGUBACMoTGphdmEvdXRpbC9MaXN0O0xqYXZhL3V0aWwvTGlzdDspWgwALgAvCgAtADABAAdnZXROYW1lAQAUKClMamF2YS9sYW5nL1N0cmluZzsBAAdkZWZhdWx0CAA0AQAIZXZhbHVhdGUBAD0oTG9yZy9kcm9vbHMvc3BpL0tub3dsZWRnZUhlbHBlcjtMb3JnL2Ryb29scy9Xb3JraW5nTWVtb3J5OylWAQATamF2YS9sYW5nL0V4Y2VwdGlvbgcAOAEAHm9yZy9kcm9vbHMvc3BpL0tub3dsZWRnZUhlbHBlcgcAOgEACGdldFR1cGxlAQAYKClMb3JnL2Ryb29scy9zcGkvVHVwbGU7DAA8AD0LADsAPgEADWdldEFjdGl2YXRpb24BAB0oKUxvcmcvZHJvb2xzL3NwaS9BY3RpdmF0aW9uOwwAQABBCwA7AEIBABlvcmcvZHJvb2xzL3NwaS9BY3RpdmF0aW9uBwBEAQAfKClMb3JnL2Ryb29scy9yZXRlb28vTGVmdFR1cGxlOwwAPABGCwBFAEcBABtvcmcvZHJvb2xzL3JldGVvby9MZWZ0VHVwbGUHAEkBABBnZXRMZWZ0VHVwbGVTaW5rAQAjKClMb3JnL2Ryb29scy9yZXRlb28vTGVmdFR1cGxlU2luazsMAEsATAsASgBNAQAib3JnL2Ryb29scy9yZXRlb28vUnVsZVRlcm1pbmFsTm9kZQcATwEAD2dldERlY2xhcmF0aW9ucwEAICgpW0xvcmcvZHJvb2xzL3J1bGUvRGVjbGFyYXRpb247DABRAFIKAFAAUwMAAAAAAQAUb3JnL2Ryb29scy9zcGkvVHVwbGUHAFYBAANnZXQBAEUoTG9yZy9kcm9vbHMvcnVsZS9EZWNsYXJhdGlvbjspTG9yZy9kcm9vbHMvY29tbW9uL0ludGVybmFsRmFjdEhhbmRsZTsMAFgAWQsAVwBaAQAnb3JnL2Ryb29scy9jb21tb24vSW50ZXJuYWxXb3JraW5nTWVtb3J5BwBcAQAkb3JnL2Ryb29scy9jb21tb24vSW50ZXJuYWxGYWN0SGFuZGxlBwBeAQAJZ2V0T2JqZWN0AQAUKClMamF2YS9sYW5nL09iamVjdDsMAGAAYQsAXwBiAQAbb3JnL2Ryb29scy9ydWxlL0RlY2xhcmF0aW9uBwBkAQAIZ2V0VmFsdWUBAE8oTG9yZy9kcm9vbHMvY29tbW9uL0ludGVybmFsV29ya2luZ01lbW9yeTtMamF2YS9sYW5nL09iamVjdDspTGphdmEvbGFuZy9PYmplY3Q7DABmAGcKAGUAaAEAEGphdmEvbGFuZy9TdHJpbmcHAGoBAEBydWxlczEvcGluZy9SdWxlX3BpbmdfdGVzdF9ydWxlXzY4NWU1ZmY3ZmM1ZDQ4ZmE4MDdkYjM4OWI3NTYwYTMwBwBsAQBMKExvcmcvZHJvb2xzL3NwaS9Lbm93bGVkZ2VIZWxwZXI7TGphdmEvbGFuZy9TdHJpbmc7TG9yZy9kcm9vbHMvRmFjdEhhbmRsZTspVgwAHgBuCgBtAG8BAA1Db25zdGFudFZhbHVlAQAEQ29kZQEACFN0YWNrTWFwAQAKRXhjZXB0aW9ucwAhAAIABAACAAYACAABABoACQAKAAEAcQAAAAIACwAGAAEADQAOAAEAcgAAABEAAQABAAAABSq3ABCxAAAAAAABABEAEgABAHIAAAAPAAEAAQAAAAMSE6wAAAAAAAEAFAAVAAEAcgAAABwABQABAAAAECq2ABkSGxIdEh8SIbgAJrAAAAAAAAEAJwAoAAEAcgAAAEoAAgACAAAAHivGAAorwQAImgAFA6wqtgAqK8AACLkAKwEAuAAxrAAAAAEAcwAAABoAAgALAAIHAAIHAAQAAAANAAIHAAIHAAQAAAABADIAMwABAHIAAAAPAAEAAQAAAAMSNbAAAAAAAAEANgA3AAIAcgAAAFkAAwAHAAAATSu5AD8BAE4ruQBDAQC5AEgBALkATgEAwABQtgBUOgQtGQQSVTK5AFsCADoFGQQSVTIswABdGQW5AGMBALYAacAAazoGKxkGGQW4AHCxAAAAAAB0AAAABAABADkAAHQARnJ1bGVzMS9waW5nL1J1bGVfcGluZ190ZXN0X3J1bGVfNjg1ZTVmZjdmYzVkNDhmYTgwN2RiMzg5Yjc1NjBhMzAuY2xhc3N1cQB+AAEAAAPEyv66vgAAADIALAcAAgEAQHJ1bGVzMS9waW5nL1J1bGVfcGluZ190ZXN0X3J1bGVfNjg1ZTVmZjdmYzVkNDhmYTgwN2RiMzg5Yjc1NjBhMzAHAAQBABBqYXZhL2xhbmcvT2JqZWN0AQAQc2VyaWFsVmVyc2lvblVJRAEAAUoBAA1Db25zdGFudFZhbHVlBQAAAAAAAAH+AQAGPGluaXQ+AQADKClWAQAEQ29kZQoAAwAODAAKAAsBAA9MaW5lTnVtYmVyVGFibGUBABJMb2NhbFZhcmlhYmxlVGFibGUBAAR0aGlzAQBCTHJ1bGVzMS9waW5nL1J1bGVfcGluZ190ZXN0X3J1bGVfNjg1ZTVmZjdmYzVkNDhmYTgwN2RiMzg5Yjc1NjBhMzA7AQASZGVmYXVsdENvbnNlcXVlbmNlAQBMKExvcmcvZHJvb2xzL3NwaS9Lbm93bGVkZ2VIZWxwZXI7TGphdmEvbGFuZy9TdHJpbmc7TG9yZy9kcm9vbHMvRmFjdEhhbmRsZTspVgEACkV4Y2VwdGlvbnMHABcBABNqYXZhL2xhbmcvRXhjZXB0aW9uCAAZAQAEcG9uZwsAGwAdBwAcAQAeb3JnL2Ryb29scy9zcGkvS25vd2xlZGdlSGVscGVyDAAeAB8BAAZpbnNlcnQBABUoTGphdmEvbGFuZy9PYmplY3Q7KVYLABsAIQwAIgAjAQAHcmV0cmFjdAEAGihMb3JnL2Ryb29scy9GYWN0SGFuZGxlOylWAQAGZHJvb2xzAQAgTG9yZy9kcm9vbHMvc3BpL0tub3dsZWRnZUhlbHBlcjsBAAFzAQASTGphdmEvbGFuZy9TdHJpbmc7AQALc19fSGFuZGxlX18BABdMb3JnL2Ryb29scy9GYWN0SGFuZGxlOwEAClNvdXJjZUZpbGUBADlSdWxlX3BpbmdfdGVzdF9ydWxlXzY4NWU1ZmY3ZmM1ZDQ4ZmE4MDdkYjM4OWI3NTYwYTMwLmphdmEAIQABAAMAAAABABoABQAGAAEABwAAAAIACAACAAEACgALAAEADAAAAC8AAQABAAAABSq3AA2xAAAAAgAPAAAABgABAAAAAwAQAAAADAABAAAABQARABIAAAAJABMAFAACABUAAAAEAAEAFgAMAAAAVgACAAMAAAAQKhIYuQAaAgAqLLkAIAIAsQAAAAIADwAAAA4AAwAAAAcACAAIAA8ACQAQAAAAIAADAAAAEAAkACUAAAAAABAAJgAnAAEAAAAQACgAKQACAAEAKgAAAAIAK3cEAAAAAXQAWXJ1bGVzMS5waW5nLlJ1bGVfcGluZ190ZXN0X3J1bGVfNjg1ZTVmZjdmYzVkNDhmYTgwN2RiMzg5Yjc1NjBhMzBEZWZhdWx0Q29uc2VxdWVuY2VJbnZva2Vyc3IAFG9yZy5kcm9vbHMucnVsZS5SdWxlAAAAAAAAAf4MAAB4cHQAC3J1bGVzMS5waW5ndAAOcGluZyB0ZXN0IHJ1bGVwc3IAH29yZy5kcm9vbHMuYmFzZS5TYWxpZW5jZUludGVnZXIAAAAAAAAB/gwAAHhwdwQAAAAAeHcFAAAAAQFwc3IAHG9yZy5kcm9vbHMucnVsZS5Hcm91cEVsZW1lbnQAAAAAAAAB/gwAAHhyACJvcmcuZHJvb2xzLnJ1bGUuQ29uZGl0aW9uYWxFbGVtZW50phMz2VbSX+YMAAB4cH5yACFvcmcuZHJvb2xzLnJ1bGUuR3JvdXBFbGVtZW50JFR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AANBTkRzcQB+ABIAAAABdwQAAAAKc3IAF29yZy5kcm9vbHMucnVsZS5QYXR0ZXJuAAAAAAAAAf4MAAB4cHNyAB9vcmcuZHJvb2xzLmJhc2UuQ2xhc3NPYmplY3RUeXBlAAAAAAAAAf4MAAB4cHcTABBqYXZhLmxhbmcuU3RyaW5nAHhzcQB+ABIAAAABdwQAAAABc3IAIW9yZy5kcm9vbHMucnVsZS5MaXRlcmFsQ29uc3RyYWludAAAAAAAAAH+DAAAeHBzcgAgb3JnLmRyb29scy5iYXNlLkNsYXNzRmllbGRSZWFkZXIAAAAAAAAB/gwAAHhwdAAQamF2YS5sYW5nLlN0cmluZ3QACHRvU3RyaW5neHNyACJvcmcuZHJvb2xzLnJ1bGUuTGl0ZXJhbFJlc3RyaWN0aW9uAAAAAAAAAf4MAAB4cHNyACVvcmcuZHJvb2xzLmJhc2UuZmllbGQuT2JqZWN0RmllbGRJbXBsAAAAAAAAAf4MAAB4cHcBAHBwdAAEcGluZ3hzcgBMb3JnLmRyb29scy5iYXNlLmV2YWx1YXRvcnMuRXF1YWxpdHlFdmFsdWF0b3JzRGVmaW5pdGlvbiRTdHJpbmdFcXVhbEV2YWx1YXRvcgAAAAAAAAGQDAAAeHIAHW9yZy5kcm9vbHMuYmFzZS5CYXNlRXZhbHVhdG9yFtkECENfQGIMAAB4cHNyACNvcmcuZHJvb2xzLmJhc2UuZXZhbHVhdG9ycy5PcGVyYXRvcgAAAAAAAAH+DAAAeHB0AAI9PXcBAHhzcgAZb3JnLmRyb29scy5iYXNlLlZhbHVlVHlwZQAAAAAAAAH+DAAAeHB0AAZTdHJpbmd2cgAQamF2YS5sYW5nLlN0cmluZ6DwpDh6O7NCAgAAeHB3BAAAAAd4eHEAfgAweHh4c3IAG29yZy5kcm9vbHMucnVsZS5EZWNsYXJhdGlvbgAAAAAAAAH+DAAAeHB0AAFzc3IAH29yZy5kcm9vbHMuc3BpLlBhdHRlcm5FeHRyYWN0b3IAAAAAAAAB/gwAAHhwcQB+ACt4cQB+ACl3AQB4c3EAfgAGP0AAAAAAAAF3CAAAAAIAAAABcQB+AEVxAH4ARHhwdwQAAAAAcHcEAAAAAHh4eHQABGphdmF0AARNQUlOc3EAfgAGP0AAAAAAAAx3CAAAABAAAAAAeHVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAAFxAH4ARXBwcHcKAAAAAAAAAAEAAHBwdwMAAAFwcHNyAB5vcmcuZHJvb2xzLmJhc2UuRW5hYmxlZEJvb2xlYW4AAAAAAAAB/gwAAHhwdwEBeHNyACFvcmcuZHJvb2xzLmlvLmltcGwuUmVhZGVyUmVzb3VyY2Xci7RDxz0reQIAA0oACGxhc3RSZWFkSgAJdGltZXN0YW1wTAAIZW5jb2Rpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cgAfb3JnLmRyb29scy5pby5pbXBsLkJhc2VSZXNvdXJjZWR9XCMvWyKRAgAETAANY29uZmlndXJhdGlvbnQAKkxvcmcvZHJvb2xzL2J1aWxkZXIvUmVzb3VyY2VDb25maWd1cmF0aW9uO0wAC2Rlc2NyaXB0aW9ucQB+AFFMAARuYW1lcQB+AFFMAAxyZXNvdXJjZVR5cGV0ACFMb3JnL2Ryb29scy9idWlsZGVyL1Jlc291cmNlVHlwZTt4cHBwcHNyAB9vcmcuZHJvb2xzLmJ1aWxkZXIuUmVzb3VyY2VUeXBlqnnIZllimjYCAARMABBkZWZhdWx0RXh0ZW5zaW9ucQB+AFFMAAtkZXNjcmlwdGlvbnEAfgBRTAAEbmFtZXEAfgBRWwAPb3RoZXJFeHRlbnNpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO3hwdAADZHJsdAAURHJvb2xzIFJ1bGUgTGFuZ3VhZ2V0AANEUkx1cQB+AEwAAAAAAAABQAqC+KkAAAFACoL4qXB0AAZhZ2VuZGF4eHhzcQB+AAY/QAAAAAAADHcIAAAAEAAAAAF0AEBydWxlczEucGluZy5SdWxlX3BpbmdfdGVzdF9ydWxlXzY4NWU1ZmY3ZmM1ZDQ4ZmE4MDdkYjM4OWI3NTYwYTMwc3IAHG9yZy5kcm9vbHMucnVsZS5MaW5lTWFwcGluZ3O10GgP184yEAwAAHhwcQB+AF93CAAAAAQAAAAFeHh4c3EAfgAGP0AAAAAAAAx3CAAAABAAAAAAeHEAfgAcc3EAfgAGP0AAAAAAAAx3CAAAABAAAAABdAANcnVsZXMxLnBpbmcuKnNyACFvcmcuZHJvb2xzLnJ1bGUuSW1wb3J0RGVjbGFyYXRpb24AAAAAAAAB/gwAAHhwcQB+AGR4eHNyAB5qYXZhLnV0aWwuQ29sbGVjdGlvbnMkRW1wdHlTZXQV9XIdtAPLKAIAAHhwc3IAHmphdmEudXRpbC5Db2xsZWN0aW9ucyRFbXB0eU1hcFk2FIVa3OfQAgAAeHBxAH4AanNxAH4ABj9AAAAAAAAMdwgAAAAQAAAAAXQAD2NvbS5zYW1wbGUuYnBtbnNyACZvcmcuamJwbS5ydWxlZmxvdy5jb3JlLlJ1bGVGbG93UHJvY2VzcwAAAAAAAAH+AgAAeHIAL29yZy5qYnBtLndvcmtmbG93LmNvcmUuaW1wbC5Xb3JrZmxvd1Byb2Nlc3NJbXBsAAAAAAAAAf4CAANaAAxhdXRvQ29tcGxldGVaAAdkeW5hbWljTAANbm9kZUNvbnRhaW5lcnQAJkxvcmcvamJwbS93b3JrZmxvdy9jb3JlL05vZGVDb250YWluZXI7eHIAJm9yZy5qYnBtLnByb2Nlc3MuY29yZS5pbXBsLlByb2Nlc3NJbXBsAAAAAAAAAf4CAAtMABBjb250ZXh0Q29udGFpbmVydAAoTG9yZy9qYnBtL3Byb2Nlc3MvY29yZS9Db250ZXh0Q29udGFpbmVyO0wAD2Z1bmN0aW9uSW1wb3J0c3QAEExqYXZhL3V0aWwvTGlzdDtMAAdnbG9iYWxzdAAPTGphdmEvdXRpbC9NYXA7TAACaWRxAH4AUUwAB2ltcG9ydHNxAH4AckwACG1ldGFEYXRhcQB+AHNMAARuYW1lcQB+AFFMAAtwYWNrYWdlTmFtZXEAfgBRTAAIcmVzb3VyY2V0ABhMb3JnL2Ryb29scy9pby9SZXNvdXJjZTtMAAR0eXBlcQB+AFFMAAd2ZXJzaW9ucQB+AFF4cHNyAC9vcmcuamJwbS5wcm9jZXNzLmNvcmUuaW1wbC5Db250ZXh0Q29udGFpbmVySW1wbAAAAAAAAAH+AgADSgANbGFzdENvbnRleHRJZEwAD2RlZmF1bHRDb250ZXh0c3EAfgBzTAALc3ViQ29udGV4dHNxAH4Ac3hwAAAAAAAAAANzcQB+AAY/QAAAAAAADHcIAAAAEAAAAAN0AA5FeGNlcHRpb25TY29wZXNyADZvcmcuamJwbS5wcm9jZXNzLmNvcmUuY29udGV4dC5leGNlcHRpb24uRXhjZXB0aW9uU2NvcGUAAAAAAAAB/gIAAUwAEWV4Y2VwdGlvbkhhbmRsZXJzcQB+AHN4cgAtb3JnLmpicG0ucHJvY2Vzcy5jb3JlLmNvbnRleHQuQWJzdHJhY3RDb250ZXh0lgd/NbRX0boCAAJKAAJpZEwAEGNvbnRleHRDb250YWluZXJxAH4AcXhwAAAAAAAAAANxAH4AdXNxAH4ABj9AAAAAAAAMdwgAAAAQAAAAAHh0AA1Td2ltbGFuZVNjb3Blc3IANm9yZy5qYnBtLnByb2Nlc3MuY29yZS5jb250ZXh0LnN3aW1sYW5lLlN3aW1sYW5lQ29udGV4dAAAAAAAAAH+AgABTAAJc3dpbWxhbmVzcQB+AHN4cQB+AHsAAAAAAAAAAnEAfgB1c3EAfgAGP0AAAAAAAAx3CAAAABAAAAAAeHQADVZhcmlhYmxlU2NvcGVzcgA0b3JnLmpicG0ucHJvY2Vzcy5jb3JlLmNvbnRleHQudmFyaWFibGUuVmFyaWFibGVTY29wZQAAAAAAAAH+AgABTAAJdmFyaWFibGVzcQB+AHJ4cQB+AHsAAAAAAAAAAXEAfgB1c3EAfgASAAAAAHcEAAAACnh4c3EAfgAGP0AAAAAAAAx3CAAAABAAAAADcQB+AHlzcQB+ABIAAAABdwQAAAAKcQB+AHx4cQB+AH5zcQB+ABIAAAABdwQAAAAKcQB+AIB4cQB+AIJzcQB+ABIAAAABdwQAAAAKcQB+AIR4eHBwcQB+AGxwc3EAfgAGP0AAAAAAAAx3CAAAABAAAAADdAAPVGFyZ2V0TmFtZXNwYWNldAAbaHR0cDovL3d3dy5qYm9zcy5vcmcvZHJvb2xzdAALRGVmaW5pdGlvbnNzcgAfb3JnLmpicG0uYnBtbjIuY29yZS5EZWZpbml0aW9ucwAAAAAAAAAEAgADTAAMYXNzb2NpYXRpb25zcQB+AHJMAApkYXRhU3RvcmVzcQB+AHJMAA90YXJnZXROYW1lc3BhY2VxAH4AUXhwcHBxAH4AjHQAEEJQTU4uQ29ubmVjdGlvbnNzcQB+ABIAAAACdwQAAAAKc3IAIG9yZy5qYnBtLmJwbW4yLmNvcmUuU2VxdWVuY2VGbG93AAAAAAAAAf4CAAlJAAhwcmlvcml0eUwACmJlbmRwb2ludHNxAH4AUUwACmV4cHJlc3Npb25xAH4AUUwAAmlkcQB+AFFMAAhsYW5ndWFnZXEAfgBRTAAEbmFtZXEAfgBRTAAJc291cmNlUmVmcQB+AFFMAAl0YXJnZXRSZWZxAH4AUUwABHR5cGVxAH4AUXhwAAAAAHBwdAAFXzMtXzJwcHQAAl8zdAACXzJwc3EAfgCSAAAAAHBwdAAFXzEtXzNwcHQAAl8xdAACXzNweHh0AAhwcm9jZXNzMXQAC3J1bGVzMS5waW5ncHQACFJ1bGVGbG93cAEAc3IAQ29yZy5qYnBtLnJ1bGVmbG93LmNvcmUuUnVsZUZsb3dQcm9jZXNzJFdvcmtmbG93UHJvY2Vzc05vZGVDb250YWluZXIAAAAAAAAB/gIAAUwABnRoaXMkMHQAKExvcmcvamJwbS9ydWxlZmxvdy9jb3JlL1J1bGVGbG93UHJvY2Vzczt4cgAtb3JnLmpicG0ud29ya2Zsb3cuY29yZS5pbXBsLk5vZGVDb250YWluZXJJbXBsAAAAAAAAAf4CAAFMAAVub2Rlc3EAfgBzeHBzcQB+AAY/QAAAAAAADHcIAAAAEAAAAANzcgAOamF2YS5sYW5nLkxvbmc7i+SQzI8j3wIAAUoABXZhbHVleHIAEGphdmEubGFuZy5OdW1iZXKGrJUdC5TgiwIAAHhwAAAAAAAAAAFzcgAlb3JnLmpicG0ud29ya2Zsb3cuY29yZS5ub2RlLlN0YXJ0Tm9kZQAAAAAAAAH+AgABTAAIdHJpZ2dlcnNxAH4AcnhyACxvcmcuamJwbS53b3JrZmxvdy5jb3JlLmltcGwuRXh0ZW5kZWROb2RlSW1wbAAAAAAAAAH+AgABTAAHYWN0aW9uc3EAfgBzeHIAJG9yZy5qYnBtLndvcmtmbG93LmNvcmUuaW1wbC5Ob2RlSW1wbAAAAAAAAAH+AgAHSgACaWRMAAhjb250ZXh0c3EAfgBzTAATaW5jb21pbmdDb25uZWN0aW9uc3EAfgBzTAAIbWV0YURhdGFxAH4Ac0wABG5hbWVxAH4AUUwADW5vZGVDb250YWluZXJ0AC1Mb3JnL2Ryb29scy9kZWZpbml0aW9uL3Byb2Nlc3MvTm9kZUNvbnRhaW5lcjtMABNvdXRnb2luZ0Nvbm5lY3Rpb25z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QAAAAAAADHcIAAAAEAAAAAB4cHNxAH4AowAAAAAAAAACcQB+ANJzcQB+AKMAAAAAAAAAA3EAfgDEeHEAfgB1eHEAfgBqdwEBc3IAF2phdmEudXRpbC5MaW5rZWRIYXNoTWFwNMBOXBBswPsCAAFaAAthY2Nlc3NPcmRlcnhxAH4ABj9AAAAAAAAMdwgAAAAQAAAAAXEAfgAdcQB+ABt4AHNyACdvcmcuZHJvb2xzLmJhc2UuQ2xhc3NGaWVsZEFjY2Vzc29yU3RvcmUAAAAAAAAB/gwAAHhwc3EAfgAGP0AAAAAAAAx3CAAAABAAAAACc3IAG29yZy5kcm9vbHMuYmFzZS5BY2Nlc3NvcktleQAAAAAAAAH+DAAAeHB3EgAQamF2YS5sYW5nLlN0cmluZ3B3BMZj2AxweHNyAEJvcmcuZHJvb2xzLmJhc2UuQ2xhc3NGaWVsZEFjY2Vzc29yU3RvcmUkQ2xhc3NPYmplY3RUeXBlTG9va3VwRW50cnkRbbnObQESyAwAAHhyADdvcmcuZHJvb2xzLmJhc2UuQ2xhc3NGaWVsZEFjY2Vzc29yU3RvcmUkQmFzZUxvb2t1cEVudHJ5+kDkB8ok2DQMAAB4cHNxAH4AEAAAAAJ3BAAAAAJxAH4AKXBxAH4AR3B4cQB+ACt4c3EAfgD8dxIAEGphdmEubGFuZy5TdHJpbmd0AAh0b1N0cmluZ3cE+GOwfnB4c3IAOG9yZy5kcm9vbHMuYmFzZS5DbGFzc0ZpZWxkQWNjZXNzb3JTdG9yZSRGaWVsZExvb2t1cEVudHJ54MQFgRGmIvsMAAB4cQB+AP9xAH4AanEAfgAwcHh4eHEAfgBoeA==</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:creator" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:description" sv:type="String">
+				<sv:value></sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:format" sv:type="String">
+				<sv:value>package</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:lastContributor" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:lastModified" sv:type="Date">
+				<sv:value>2013-07-23T08:51:39.573+01:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:title" sv:type="String">
+				<sv:value>rules1.ping</sv:value>
+			</sv:property>
+			<sv:property sv:name="drools:versionNumber" sv:type="Long">
+				<sv:value>1</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+				<sv:value>70f5db30-14c8-4f5d-8492-2e24d4e27c04</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:created" sv:type="Date">
+				<sv:value>2013-07-23T08:50:09.500+01:00</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:createdBy" sv:type="String">
+				<sv:value>admin</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+				<sv:value>true</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+				<sv:value>70f5db30-14c8-4f5d-8492-2e24d4e27c04</sv:value>
+			</sv:property>
+			<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+				<sv:value>5a1ab9e1-4c03-48ac-ab02-f34feb28ea18</sv:value>
+			</sv:property>
+			
+			
+			<sv:node sv:name="assets">
+				<sv:property sv:name="jcr:primaryType" sv:type="Name">
+					<sv:value>drools:versionableAssetFolder</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:uuid" sv:type="String">
+					<sv:value>6b123444-af30-4651-acfa-2b4afb5063ad</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+					<sv:value>14ab7ee0-ada6-49c9-a507-e2054524ee19</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:created" sv:type="Date">
+					<sv:value>2013-07-23T08:50:09.500+01:00</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:createdBy" sv:type="String">
+					<sv:value>admin</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+					<sv:value>true</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+					<sv:value>14ab7ee0-ada6-49c9-a507-e2054524ee19</sv:value>
+				</sv:property>
+				<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+					<sv:value>c825a72e-045a-4318-812d-6e97eb6b3cd9</sv:value>
+				</sv:property>
+				<sv:node sv:name="process1">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>8991924f-e426-4643-892d-6dbcfee541bf</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:categoryReference" sv:type="Reference" sv:multiple="true" />
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>Changed BPMN2 process package from ping.test to rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:content" sv:type="String">
+						<sv:value>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+							&lt;definitions id="Definition"
+							targetNamespace="http://www.jboss.org/drools"
+							typeLanguage="http://www.java.com/javaTypes"
+							expressionLanguage="http://www.mvel.org/2.0"
+							xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+							xmlns:g="http://www.jboss.org/drools/flow/gpd"
+							xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+							xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+							xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+							xmlns:tns="http://www.jboss.org/drools"&gt;
+
+							&lt;process processType="Private"
+							isExecutable="true" id="com.sample.bpmn" name="process1" tns:packageName="rules1.ping" &gt;
+
+							&lt;!-- nodes --&gt;
+							&lt;startEvent id="_1" name="StartProcess" /&gt;
+							&lt;endEvent id="_2" name="End" &gt;
+							&lt;terminateEventDefinition /&gt;
+							&lt;/endEvent&gt;
+							&lt;userTask id="_3" name="Enter Details" &gt;
+							&lt;ioSpecification&gt;
+							&lt;dataInput id="_3_CommentInput" name="Comment" /&gt;
+							&lt;dataInput id="_3_SkippableInput" name="Skippable" /&gt;
+							&lt;dataInput id="_3_LocaleInput"
+							name="Locale" /&gt;
+							&lt;dataInput id="_3_TaskNameInput" name="TaskName" /&gt;
+							&lt;dataInput id="_3_GroupIdInput" name="GroupId" /&gt;
+							&lt;dataInput id="_3_PriorityInput" name="Priority" /&gt;
+							&lt;inputSet&gt;
+							&lt;dataInputRefs&gt;_3_CommentInput&lt;/dataInputRefs&gt;
+							&lt;dataInputRefs&gt;_3_SkippableInput&lt;/dataInputRefs&gt;
+							&lt;dataInputRefs&gt;_3_LocaleInput&lt;/dataInputRefs&gt;
+							&lt;dataInputRefs&gt;_3_TaskNameInput&lt;/dataInputRefs&gt;
+							&lt;dataInputRefs&gt;_3_GroupIdInput&lt;/dataInputRefs&gt;
+							&lt;dataInputRefs&gt;_3_PriorityInput&lt;/dataInputRefs&gt;
+							&lt;/inputSet&gt;
+							&lt;outputSet&gt;
+							&lt;/outputSet&gt;
+							&lt;/ioSpecification&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_CommentInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from xsi:type="tFormalExpression"&gt;&lt;/from&gt;
+							&lt;to xsi:type="tFormalExpression"&gt;_3_CommentInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_SkippableInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from xsi:type="tFormalExpression"&gt;false&lt;/from&gt;
+							&lt;to xsi:type="tFormalExpression"&gt;_3_SkippableInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_LocaleInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from xsi:type="tFormalExpression"&gt;en-UK&lt;/from&gt;
+							&lt;to
+							xsi:type="tFormalExpression"&gt;_3_LocaleInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_TaskNameInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from
+							xsi:type="tFormalExpression"&gt;Enter Details&lt;/from&gt;
+							&lt;to xsi:type="tFormalExpression"&gt;_3_TaskNameInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_GroupIdInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from xsi:type="tFormalExpression"&gt;&lt;/from&gt;
+							&lt;to xsi:type="tFormalExpression"&gt;_3_GroupIdInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;dataInputAssociation&gt;
+							&lt;targetRef&gt;_3_PriorityInput&lt;/targetRef&gt;
+							&lt;assignment&gt;
+							&lt;from xsi:type="tFormalExpression"&gt;&lt;/from&gt;
+							&lt;to xsi:type="tFormalExpression"&gt;_3_PriorityInput&lt;/to&gt;
+							&lt;/assignment&gt;
+							&lt;/dataInputAssociation&gt;
+							&lt;potentialOwner&gt;
+							&lt;resourceAssignmentExpression&gt;
+							&lt;formalExpression&gt;&lt;/formalExpression&gt;
+							&lt;/resourceAssignmentExpression&gt;
+							&lt;/potentialOwner&gt;
+							&lt;/userTask&gt;
+
+							&lt;!-- connections --&gt;
+							&lt;sequenceFlow id="_3-_2" sourceRef="_3" targetRef="_2" /&gt;
+							&lt;sequenceFlow id="_1-_3" sourceRef="_1" targetRef="_3" /&gt;
+
+							&lt;/process&gt;
+
+							&lt;bpmndi:BPMNDiagram&gt;
+							&lt;bpmndi:BPMNPlane bpmnElement="com.sample.bpmn" &gt;
+							&lt;bpmndi:BPMNShape bpmnElement="_1" &gt;
+							&lt;dc:Bounds x="45" y="45" width="48" height="48" /&gt;
+							&lt;/bpmndi:BPMNShape&gt;
+							&lt;bpmndi:BPMNShape bpmnElement="_2" &gt;
+							&lt;dc:Bounds x="884" y="74" width="48" height="48" /&gt;
+							&lt;/bpmndi:BPMNShape&gt;
+							&lt;bpmndi:BPMNShape bpmnElement="_3" &gt;
+							&lt;dc:Bounds x="140" y="48" width="100" height="48" /&gt;
+							&lt;/bpmndi:BPMNShape&gt;
+							&lt;bpmndi:BPMNEdge bpmnElement="_3-_2" &gt;
+							&lt;di:waypoint x="190" y="72" /&gt;
+							&lt;di:waypoint x="908" y="98" /&gt;
+							&lt;/bpmndi:BPMNEdge&gt;
+							&lt;bpmndi:BPMNEdge bpmnElement="_1-_3" &gt;
+							&lt;di:waypoint x="69" y="69" /&gt;
+							&lt;di:waypoint x="190" y="72" /&gt;
+							&lt;/bpmndi:BPMNEdge&gt;
+							&lt;/bpmndi:BPMNPlane&gt;
+							&lt;/bpmndi:BPMNDiagram&gt;
+
+							&lt;/definitions&gt;</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:coverage" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:disabled" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>bpmn2</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:24.994+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:publisher" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:relation" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:rights" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:source" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:subject" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>process1</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:type" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>3</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>d1c728af-8f84-4b3a-b759-bc6c5cece14d</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:46:24.340+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>d1c728af-8f84-4b3a-b759-bc6c5cece14d</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>f893b9d3-fb0e-4510-8df5-78e2bb437763</sv:value>
+					</sv:property>
+				</sv:node>
+				<sv:node sv:name="defaultemailicon">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>951e391f-cf08-41a0-a0fd-9069b106e007</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:attachmentFileName" sv:type="String">
+						<sv:value>defaultemailicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:binaryContent" sv:type="Binary">
+						<sv:value>R0lGODlhEAAQANUAAChilmd9qW2DrXeMtJiYkZuajqGeiqZrEKehh6m30qyjhK1yErCmgbOpfrZ8FLmter2EFr+wd8HG2ca0ceDq9+Ps+Ojv+Ovx+fL1+vb4+/j5/Pvll/vusPvyufz62/797wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAACAALAAAAAAQABAAAAaAQJBwSCwaJ8ikclLUOJ9QJtEpqVolGekQAsl4v16tEPKBYKpnCSYC4ro/ZYx8/oB47vi7GcDHPBwdgYKBHA4DAgEXDQsbjY6NCxd8ABcMIAeYmI0HFp2eCkUHGwcVCQmlpwihpBUVFK2vBkWtprWmFbJEFK+7rrsUBUUEw8TFBUEAOw==</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>update binary</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>gif</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:25.795+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>defaultemailicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>1</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>10ad3f24-4cec-42eb-8ae5-249a5c4ef984</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:50:25.720+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>10ad3f24-4cec-42eb-8ae5-249a5c4ef984</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>89387d45-34f2-410d-a1f2-77b2854d65e8</sv:value>
+					</sv:property>
+				</sv:node>
+				<sv:node sv:name="defaultlogicon">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>841cd393-0e4a-4391-9c5c-b48b1a51cfb1</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:attachmentFileName" sv:type="String">
+						<sv:value>defaultlogicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:binaryContent" sv:type="Binary">
+						<sv:value>R0lGODlhEAAQAMQAAG+Fr3CFr3yRuIOSsYaUroidwIuWrI+ZqJGlx5WdpZugoKGknaeomK6slLKvkL21idSyaNq9fN3o+ODIj+Ps+evx+vP2+/f4+/n6/AAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABkALAAAAAAQABAAAAVlYCaOZEk+aIqa4oO9MPSwLvxGsvlcwYUglwluRnJYjkiko9SwBCy/guDZKDEq2GyWUVpUApXotLIoKSjodFpRSlACFDGAkigdJHg8Gn8oGSQBEnISBiUEeYh4BCUDjY6PAyySIyEAOw==</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>update binary</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>gif</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:25.950+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>defaultlogicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>1</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>6832577f-ed1b-4db0-8622-036c51954ff8</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:50:25.913+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>6832577f-ed1b-4db0-8622-036c51954ff8</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>31b995e4-3e94-49e6-a9a9-37b6b20ff041</sv:value>
+					</sv:property>
+				</sv:node>
+				<sv:node sv:name="defaultservicenodeicon">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>3c68b6d7-47f1-4b7f-9c55-8d77483359dc</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:attachmentFileName" sv:type="String">
+						<sv:value>defaultservicenodeicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:binaryContent" sv:type="Binary">
+						<sv:value>iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAC7mlDQ1BJQ0MgUHJvZmlsZQAAeAGFVM9rE0EU/jZuqdAiCFprDrJ4kCJJWatoRdQ2/RFiawzbH7ZFkGQzSdZuNuvuJrWliOTi0SreRe2hB/+AHnrwZC9KhVpFKN6rKGKhFy3xzW5MtqXqwM5+8943731vdt8ADXLSNPWABOQNx1KiEWlsfEJq/IgAjqIJQTQlVdvsTiQGQYNz+Xvn2HoPgVtWw3v7d7J3rZrStpoHhP1A4Eea2Sqw7xdxClkSAog836Epx3QI3+PY8uyPOU55eMG1Dys9xFkifEA1Lc5/TbhTzSXTQINIOJT1cVI+nNeLlNcdB2luZsbIEL1PkKa7zO6rYqGcTvYOkL2d9H5Os94+wiHCCxmtP0a4jZ71jNU/4mHhpObEhj0cGDX0+GAVtxqp+DXCFF8QTSeiVHHZLg3xmK79VvJKgnCQOMpkYYBzWkhP10xu+LqHBX0m1xOv4ndWUeF5jxNn3tTd70XaAq8wDh0MGgyaDUhQEEUEYZiwUECGPBoxNLJyPyOrBhuTezJ1JGq7dGJEsUF7Ntw9t1Gk3Tz+KCJxlEO1CJL8Qf4qr8lP5Xn5y1yw2Fb3lK2bmrry4DvF5Zm5Gh7X08jjc01efJXUdpNXR5aseXq8muwaP+xXlzHmgjWPxHOw+/EtX5XMlymMFMXjVfPqS4R1WjE3359sfzs94i7PLrXWc62JizdWm5dn/WpI++6qvJPmVflPXvXx/GfNxGPiKTEmdornIYmXxS7xkthLqwviYG3HCJ2VhinSbZH6JNVgYJq89S9dP1t4vUZ/DPVRlBnM0lSJ93/CKmQ0nbkOb/qP28f8F+T3iuefKAIvbODImbptU3HvEKFlpW5zrgIXv9F98LZua6N+OPwEWDyrFq1SNZ8gvAEcdod6HugpmNOWls05Uocsn5O66cpiUsxQ20NSUtcl12VLFrOZVWLpdtiZ0x1uHKE5QvfEp0plk/qv8RGw/bBS+fmsUtl+ThrWgZf6b8C8/UXAeIuJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4EYVUfUxTVxT/3de+wqNUJDgU+ZRiC+goKyIZy5wSSBB04WMMZ1yiy5Y4kpksWxwxRCdmxLk/JCQzS8yYMVsym6HDwDAoYHHgClhb+QhlRUQYwVrBFUof7ePdvdfMfbCYndx7cz/y+52T3zn3gFKK500TNSnSys4Yn/f+7J7BKvuw8FaMvf/hFnhdBsepjSYqkubakz1mgf8tz9oz8erhI23pqyAgMtuftqZpsu9o+7WpkuvNzsAE6yfwhOnALHLxRCOuj/I55qGiudEpyr05ic0VB4xnJJxbxirlhRDCfvfNwDFeraoSXESzTrMRx8uKkJbGw3aHImAEw4yHpl34vhV0CVgMYaquTFhQuinnaBAvR1L1Y2tWoMd/yfcEWhKqpq/vjiX5uQFMzjzC6JCI+BcJNvti0e0jaL0zTYX5JcLF0DGmK6z0K9PukaAmBwtTImyzTr8z1oM9RfFkh/YpZmdL4Oh6E+o1DfDerAB1v4WClwgKs1LJyJAHA233hbc/To2SIwmSGJdDIc77cbC8GPk5AhYHD2P4bhIqd9Rjb/ExxOU2wB7pha/7a+wMDcM7BwrBcX7ySoaK/Yukrn76hFvF6fl+Hva2GSyFD+GNffvBL+iBwDLS+TTEoRL3xs/Cqb6LFa0A9gmnb//8wQmZRGkorzeOiUIy7/EynCSzixOxNLMHOksmBiiPl3tlZxKRsgy/csOYGxERsgiY6QJjsd1O1pX3GpmafbH240ey+zK1ap9Pymp0QIEktCBEdRk5lAMU8uAwEnIZ4UIL4gJKBESCjGS1T8bVKJLswWr102kDimptv9jcdO7xPdpxUU8t56Lo6O1qKtYP0NHeanpDOptHo6l12kbPn3fTrZW1Nirh5OwGhWVvUZrOqPDlpVZc71EicVsjNuQp0Gk9jeGnp9A5eBqbNC8gXrwC6wCLCx0/weVXUXvXihDURF46m8d+3xmnVz2KWMFVxyRlkUC2b2vHukgX5jcIiFyuQnJBTNBBt/Sekh1GtGM61nR1cs6wK+Hvsv+20fpZeDTzQe/YuOZGnxfv5RdLlcxjmaFQSP4ys0NxTooUa8NRsEW7EP5YbKg4ZKyRg/jX33E2Wj9p6n9YWu1y+LeyfhANpxu87+UMERrRHvA5NrMqvLY+RbVre8IP+w9l1Ul4j0zynzZQ9lFH4mD3VIYsWl3nzabUki+mTn76szmw8CDPYnbmvft+S5YEY5+1geAH/udh9d5kMilQdvZ/+8kfxh8EsHymFKsAAAAASUVORK5CYII=</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>update binary</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>png</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:26.096+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>defaultservicenodeicon</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>1</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>d914c711-ac5b-4a1d-a869-c7d77e7a4ed2</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:50:26.050+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>d914c711-ac5b-4a1d-a869-c7d77e7a4ed2</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>a7a58d02-26c8-4fcb-940c-4bf5921a5a79</sv:value>
+					</sv:property>
+				</sv:node>
+				<sv:node sv:name="WorkDefinitions">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>a8315e3e-4c03-40d7-a1e6-ae6013e31f6c</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:attachmentFileName" sv:type="String">
+						<sv:value>WorkDefinitions</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:binaryContent" sv:type="Binary">
+						<sv:value>aW1wb3J0IG9yZy5kcm9vbHMucHJvY2Vzcy5jb3JlLmRhdGF0eXBlLmltcGwudHlwZS5TdHJpbmdEYXRhVHlwZTsKWwogIFsKICAgICJuYW1lIiA6ICJFbWFpbCIsCiAgICAicGFyYW1ldGVycyIgOiBbCiAgICAgICJGcm9tIiA6IG5ldyBTdHJpbmdEYXRhVHlwZSgpLAogICAgICAiVG8iIDogbmV3IFN0cmluZ0RhdGFUeXBlKCksCiAgICAgICJTdWJqZWN0IiA6IG5ldyBTdHJpbmdEYXRhVHlwZSgpLAogICAgICAiQm9keSIgOiBuZXcgU3RyaW5nRGF0YVR5cGUoKQogICAgXSwKICAgICJkaXNwbGF5TmFtZSIgOiAiRW1haWwiLAogICAgImljb24iIDogImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9qYm9zcy1icm1zL3Jlc3QvcGFja2FnZXMvcnVsZXMxLnBpbmcvYXNzZXRzL2RlZmF1bHRlbWFpbGljb24vYmluYXJ5IgogIF0sCiAgCiAgWwogICAgIm5hbWUiIDogIkxvZyIsCiAgICAicGFyYW1ldGVycyIgOiBbCiAgICAgICJNZXNzYWdlIiA6IG5ldyBTdHJpbmdEYXRhVHlwZSgpCiAgICBdLAogICAgImRpc3BsYXlOYW1lIiA6ICJMb2ciLAogICAgImljb24iIDogImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9qYm9zcy1icm1zL3Jlc3QvcGFja2FnZXMvcnVsZXMxLnBpbmcvYXNzZXRzL2RlZmF1bHRsb2dpY29uL2JpbmFyeSIKICBdCl0K</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>update binary</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>wid</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:26.302+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>WorkDefinitions</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>1</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>6333c568-1377-422c-8502-5136aaa3c966</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:50:26.266+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>6333c568-1377-422c-8502-5136aaa3c966</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>4a617de1-4d8c-4bc8-8613-bb615d3c8bff</sv:value>
+					</sv:property>
+				</sv:node>
+				<sv:node sv:name="ping test rule">
+					<sv:property sv:name="jcr:primaryType" sv:type="Name">
+						<sv:value>drools:assetNodeType</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:uuid" sv:type="String">
+						<sv:value>1f7ab154-696c-4d4e-8803-6105bddf6398</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:archive" sv:type="Boolean">
+						<sv:value>false</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:categoryReference" sv:type="Reference" sv:multiple="true">
+						<sv:value>c09b0830-1cfb-4123-8422-8f0d2a9833c4</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:checkinComment" sv:type="String">
+						<sv:value>Moved from : home.mallen.Work.poc.maven-guvnor-bulk-importer.rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:content" sv:type="String">
+						<sv:value>rule "ping test rule"
+							when
+							s: String(toString == "ping")
+							then
+							insert("pong");
+							retract(s);
+							end</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:creator" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:description" sv:type="String">
+						<sv:value></sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:format" sv:type="String">
+						<sv:value>drl</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastContributor" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:lastModified" sv:type="Date">
+						<sv:value>2013-07-23T08:50:31.682+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:packageName" sv:type="String">
+						<sv:value>rules1.ping</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:source" sv:type="String">
+						<sv:value>Imported from external DRL</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:stateReference" sv:type="Reference">
+						<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:title" sv:type="String">
+						<sv:value>ping test rule</sv:value>
+					</sv:property>
+					<sv:property sv:name="drools:versionNumber" sv:type="Long">
+						<sv:value>4</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:baseVersion" sv:type="Reference">
+						<sv:value>9a37416e-ce30-44bd-8be5-988857a085c7</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:created" sv:type="Date">
+						<sv:value>2013-07-23T08:46:24.324+01:00</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:createdBy" sv:type="String">
+						<sv:value>admin</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:isCheckedOut" sv:type="Boolean">
+						<sv:value>true</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:predecessors" sv:type="Reference" sv:multiple="true">
+						<sv:value>9a37416e-ce30-44bd-8be5-988857a085c7</sv:value>
+					</sv:property>
+					<sv:property sv:name="jcr:versionHistory" sv:type="Reference">
+						<sv:value>e36abf5f-06df-409e-9d6a-90de55140bd0</sv:value>
+					</sv:property>
+				</sv:node>
+			</sv:node>
+		</sv:node>
+	</sv:node>
+</sv:node>
+<sv:node sv:name="drools:tag_area">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>nt:folder</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:created" sv:type="Date">
+		<sv:value>2013-07-23T08:46:24.483+01:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+	<sv:node sv:name="importedCategory">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>drools:categoryNodeType</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>c09b0830-1cfb-4123-8422-8f0d2a9833c4</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-07-23T08:46:24.483+01:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+	</sv:node>
+</sv:node>
+<sv:node sv:name="drools:state_area">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>nt:folder</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:created" sv:type="Date">
+		<sv:value>2013-07-23T08:46:24.484+01:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+	<sv:node sv:name="Draft">
+		<sv:property sv:name="jcr:primaryType" sv:type="Name">
+			<sv:value>drools:stateNodeType</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:uuid" sv:type="String">
+			<sv:value>be7525b8-1471-475a-b344-7f539a465a7e</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:created" sv:type="Date">
+			<sv:value>2013-07-23T08:46:24.485+01:00</sv:value>
+		</sv:property>
+		<sv:property sv:name="jcr:createdBy" sv:type="String">
+			<sv:value>admin</sv:value>
+		</sv:property>
+	</sv:node>
+</sv:node>
+<sv:node sv:name="drools.package.migrated">
+	<sv:property sv:name="jcr:primaryType" sv:type="Name">
+		<sv:value>nt:folder</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:created" sv:type="Date">
+		<sv:value>2013-07-23T08:46:24.485+01:00</sv:value>
+	</sv:property>
+	<sv:property sv:name="jcr:createdBy" sv:type="String">
+		<sv:value>admin</sv:value>
+	</sv:property>
+</sv:node>
