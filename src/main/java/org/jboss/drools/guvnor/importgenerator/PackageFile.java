@@ -190,17 +190,17 @@ public class PackageFile implements Comparator<Integer> {
     }
 
     private static PackageFile parseRuleFiles(PackageFile result, File[] ruleFiles, CmdArgsParser options) throws IOException {
-      System.out.println("XXXXX file.length = "+ ruleFiles.length + "="+ ruleFiles[0].getName());
+//      System.out.println("XXXXX file.length = "+ ruleFiles.length + "="+ ruleFiles[0].getName());
         for (int i = 0; i < ruleFiles.length; i++) {
             File file = ruleFiles[i];
             if (file.getName().endsWith(".drl")) {
-              System.out.println("XXXXXXX found DRL");  
+//              System.out.println("XXXXXXX found DRL");  
               parseDrlFile(file, result, options);
             } else if (file.getName().endsWith(".xls")) {
-              System.out.println("XXXXXXX found XLS");
+//              System.out.println("XXXXXXX found XLS");
                 parseXlsFile(file, result, options);
-            } else if (file.getName().endsWith(".bpmn")) {
-              System.out.println("XXXXXXX found BPM");
+            } else if (file.getName().endsWith(".bpmn") || file.getName().endsWith(".bpmn2")) {
+//              System.out.println("XXXXXXX found BPM");
                 parseBpmFile(file, result, options);
             }
         }
@@ -216,7 +216,7 @@ public class PackageFile implements Comparator<Integer> {
       }
       packageFile.getRules().put(file.getName(), new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file));
       packageFile.getRuleFiles().put(file.getName(), file);
-  }
+    }
     
     private static void parseXlsFile(File file, PackageFile packageFile, CmdArgsParser options) throws FileNotFoundException, UnsupportedEncodingException {
         String content = FileIOHelper.readAllAsBase64(file);
@@ -281,6 +281,9 @@ public class PackageFile implements Comparator<Integer> {
 //          System.out.println("BPMN = "+bpmn2);
 //          builder.add(ResourceFactory.newByteArrayResource(bpmn2.getBytes()), ResourceType.BPMN2);
           builder.add(ResourceFactory.newFileResource(e.getValue()), ResourceType.BPMN2);
+//          new org.jbpm.bpmn2.BPMN2ProcessProviderImpl();
+//          org.drools.compiler.BPMN2ProcessProvider x;
+          
         }
         if (null!=drl)
           builder.add(ResourceFactory.newByteArrayResource(drl.getBytes()), ResourceType.DRL);

@@ -117,7 +117,7 @@ public class ImportFileGenerator implements Constants {
             for (Map.Entry<String, Rule> rulesEntry : rules.entrySet()) {
 //                String ruleName = rulesEntry.getKey();
                 Rule rule = (Rule) rulesEntry.getValue();
-                System.out.println("RULE = "+ rule.getRuleName());
+//                System.out.println("RULE = "+ rule.getRuleName());
                 context.put("file", rule.getFile());
                 context.put("rule", rule);
                 String format = FilenameUtils.getExtension(rule.getFile().getName());

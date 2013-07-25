@@ -12,7 +12,7 @@ public class Main {
     "-r", "true",
     "-u","admin",
     "-f","drl,xls,bpmn",
-    "-o","generated.xml",
+    "-o","guvnor-import.xml",
     "-n","1.0.0-SNAPSHOT",
 //    "-c","functions.drl",
 //    "-k", "http://localhost:8080/brms/org.drools.guvnor.Guvnor/package/",
