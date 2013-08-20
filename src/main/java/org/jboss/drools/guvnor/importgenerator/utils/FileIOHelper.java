@@ -16,48 +16,34 @@
 
 package org.jboss.drools.guvnor.importgenerator.utils;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
 /**
  * File IO helper class for reading/writing files and converting to/from base64
  */
 public class FileIOHelper {
-    public static final String FORMAT = "utf-8";
+  public static final String FORMAT = "utf-8";
 
-    public static void write(String data, File destination) throws IOException {
-        BufferedWriter out = new BufferedWriter(new FileWriter(destination));
-        out.write(data.toString());
-        out.flush();
-        out.close();
-    }
+  public static String readAllAsBase64(File file) throws FileNotFoundException, IOException {
+    byte[] bytes = IOUtils.toByteArray(new FileInputStream(file));
+    return toBase64(bytes);
+  }
 
-    public static String readAllAsBase64(File file) throws UnsupportedEncodingException {
-        byte[] bytes = new byte[0];
-        try {
-            bytes = FileUtils.readFileToByteArray(file);
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Error reading file (" + file +")", e);
-        }
-        byte[] base64bytes = Base64.encodeBase64(bytes);
-        String base64String = new String(base64bytes, "utf-8");
-        return base64String;
-    }
+  public static String toBase64(byte[] b) throws UnsupportedEncodingException {
+    byte[] b64 = Base64.encodeBase64(b);
+    return new String(b64, "utf-8");
+  }
 
-    public static String toBase64(byte[] b) throws UnsupportedEncodingException {
-        byte[] b64 = Base64.encodeBase64(b);
-        return new String(b64, "utf-8");
-    }
-
-    public static String fromBase64(byte[] b64) throws UnsupportedEncodingException {
-        byte[] b = Base64.decodeBase64(b64);
-        return new String(b, "utf-8");
-    }
+  public static String fromBase64(byte[] b64) throws UnsupportedEncodingException {
+    byte[] b = Base64.decodeBase64(b64);
+    return new String(b, "utf-8");
+  }
 
 }

@@ -17,6 +17,7 @@
 package org.jboss.drools.guvnor.importgenerator;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
@@ -32,67 +33,41 @@ import java.util.Map;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.jboss.drools.guvnor.importgenerator.CmdArgsParser.Parameters;
 import org.jboss.drools.guvnor.importgenerator.utils.FileIOHelper;
 import org.joda.time.DateTime;
 import org.joda.time.Minutes;
 import org.joda.time.Seconds;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * a BRMS import file generator for drl and xml decision table files
  */
 public class ImportFileGenerator implements Constants {
-
-    public static void main(String[] args) {
-        CmdArgsParser options = new CmdArgsParser();
-        options.parse(args);
-//        configureLogger(options);
-        ImportFileGenerator importFileGenerator = new ImportFileGenerator();
-        importFileGenerator.run(options);
-    }
-
-    private static void configureLogger(CmdArgsParser options) {
-//        ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) LoggerFactory
-//                .getLogger("org.jboss.drools.guvnor.importgenerator");
-        if ("true".equals(options.getOption(Parameters.OPTIONS_VERY_VERBOSE))) {
-//            root.setLevel(ch.qos.logback.classic.Level.TRACE);
-        } else if ("true".equals(options.getOption(Parameters.OPTIONS_VERBOSE))) {
-//            root.setLevel(ch.qos.logback.classic.Level.DEBUG);
-        }
-    }
-
-//    protected final transient Logger logger = LoggerFactory.getLogger(getClass());
     class Logger{
       public void debug(String msg){System.out.println(msg);}
       public void error(String msg, Throwable t){System.err.println(msg); t.printStackTrace();}
       public void trace(String msg){System.out.println(msg);}
     }
     protected final Logger logger=new Logger();
-    
-    private CmdArgsParser options = null;
+    private Configuration options=null;
     private String BASE_DIR = System.getProperty("user.dir");
 
     public enum PackageObjectType {PACKAGE, PACKAGE_SNAPSHOT, MODEL}
 
     public enum RuleObjectType {RULE, SNAPSHOT_RULE}
 
-    /**
-     * The main action method
-     *
-     * @param packages
-     * @return
-     * @throws IOException
-     */
-    public String generateImportFile(Map<String, PackageFile> packages) throws IOException {
+    private Map<String, PackageFile> packages;
+    private void setPackages(Map<String, PackageFile> packages){
+      this.packages=packages;
+    }
+    
+    private String generateImportFile() throws IOException {
         // go through each replacer definition creating drl template replacements
         //TODO: what is the org.drools.io.RuleSetReader ??? is this what Guvnor uses this to read the .drl file parts?
         String draftStateReferenceUUID = GeneratedData.generateUUID();
         String categoryReferenceUUID = GeneratedData.generateUUID();
-
+        
         //reporting only
-        int cok = 0, cerror = 0, derror = 0, terror = 0, total = 0;
+        int cok = 0, terror = 0, total = 0;
 
         StringBuffer packageContents = new StringBuffer();
         StringBuffer snapshotContents = new StringBuffer();
@@ -117,7 +92,6 @@ public class ImportFileGenerator implements Constants {
             for (Map.Entry<String, Rule> rulesEntry : rules.entrySet()) {
 //                String ruleName = rulesEntry.getKey();
                 Rule rule = (Rule) rulesEntry.getValue();
-//                System.out.println("RULE = "+ rule.getRuleName());
                 context.put("file", rule.getFile());
                 context.put("rule", rule);
                 String format = FilenameUtils.getExtension(rule.getFile().getName());
@@ -135,8 +109,8 @@ public class ImportFileGenerator implements Constants {
                 ruleContents.append(MessageFormat.format(modelTemplate, getPackageObjects(context, new StringBuffer(model.getContent()), PackageObjectType.MODEL)));
             }
             // If no models in directory but parameter specified then upload the parameterized model
-            if (packageFile.getModelFiles().size() <= 0 && options.getOption(Parameters.OPTIONS_MODEL) != null) {
-                File modelFile = new File(options.getOption(Parameters.OPTIONS_MODEL));
+            if (packageFile.getModelFiles().size() <= 0 && options.getModelFile() != null) {
+                File modelFile = new File(options.getModelFile());
                 String modelFileContent = FileIOHelper.readAllAsBase64(modelFile);
                 context.put("model", new Model(modelFile, modelFileContent));
                 ruleContents.append(MessageFormat.format(modelTemplate, getPackageObjects(context, new StringBuffer(modelFileContent), PackageObjectType.MODEL)));
@@ -147,7 +121,7 @@ public class ImportFileGenerator implements Constants {
             packageContents.append(MessageFormat.format(packageTemplate, getPackageObjects(context, ruleContents, PackageObjectType.PACKAGE)));
 
             //inject the snapshot values into the snapshot contents
-            if (options.getOption(Parameters.OPTIONS_SNAPSHOT_NAME) != null) {
+            if (options.getSnapshotName() != null) {
                 snapshotContents.append(MessageFormat.format(readTemplate(TEMPLATES_SNAPSHOT), getPackageObjects(context, snapshotRuleContents, PackageObjectType.PACKAGE_SNAPSHOT)));
             }
 
@@ -156,12 +130,12 @@ public class ImportFileGenerator implements Constants {
             if (packageFile.hasErrors()) {
                 terror++;
                 if (packageFile.hasCompilationErrors()) {
-                    cerror++;
+//                    cerror++;
                     logger.debug(" - [COMPILATION/DEPENDENCY ERRORS]");
                     logger.trace(packageFile.getCompilationErrors().trim());
                     logger.trace(packageFile.getDependencyErrors().trim());
                 } else if (packageFile.hasDependencyErrors()) {
-                    derror++;
+//                    derror++;
                     logger.debug(" - [DEPENDENCY ERRORS]");
                     logger.trace(packageFile.getDependencyErrors().trim());
                 }
@@ -186,9 +160,6 @@ public class ImportFileGenerator implements Constants {
         logger.debug("==========================");
         logger.debug(" Rules compiled OK:   " + NumberFormat.getInstance().format(cok));
         logger.debug(" Errors:              " + NumberFormat.getInstance().format(terror));
-        //comp or dep errors can no longer be detected accurately since many drl file can be in a single package
-//        logger.debug(" Compilation errors:  "+ NumberFormat.getInstance().format(cerror));
-//        logger.debug(" Dependency errors:   "+ NumberFormat.getInstance().format(derror));
         logger.debug("                      ____");
         logger.debug(" Total:               " + NumberFormat.getInstance().format(total));
         logger.debug("==========================");
@@ -210,8 +181,8 @@ public class ImportFileGenerator implements Constants {
             String packageName = packagesEntry.getKey();
             PackageFile packageFile = packagesEntry.getValue();
             kagentChildContents.append(MessageFormat.format(kagentChildTemplate,
-                    new Object[]{options.getOption(Parameters.OPTIONS_KAGENT_CHANGE_SET_SERVER),
-                            packageFile.getName() + "/" + options.getOption(Parameters.OPTIONS_SNAPSHOT_NAME), "PKG"}));
+                    new Object[]{options.getKagentChangeSetServer(),
+                            packageFile.getName() + "/" + options.getSnapshotName(), "PKG"}));
         }
         String kagentParentTemplate = readTemplate(TEMPLATES_KAGENT_PARENT_INIT);
         kagentInitContents.append(MessageFormat.format(kagentParentTemplate, new Object[]{kagentChildContents.toString()}));
@@ -220,7 +191,7 @@ public class ImportFileGenerator implements Constants {
 
 
     private StringBuffer getSnapshotContents(StringBuffer snapshotContents) {
-        if (options.getOption(Parameters.OPTIONS_SNAPSHOT_NAME) != null) {
+        if (options.getSnapshotName() != null) {
             return snapshotContents;
         }
         return new StringBuffer("");
@@ -275,7 +246,7 @@ public class ImportFileGenerator implements Constants {
             case PACKAGE_SNAPSHOT:
                 objects.add(packageFile.getName());
                 objects.add(packageFile.getName().substring(packageFile.getName().lastIndexOf(".") + 1));// //aka the title
-                objects.add(options.getOption(Parameters.OPTIONS_SNAPSHOT_NAME));
+                objects.add(options.getSnapshotName());
                 objects.add(getCreator()); //3
                 objects.add(packageFile.getImports()); //4
                 objects.add(contents.toString()); //5
@@ -317,42 +288,38 @@ public class ImportFileGenerator implements Constants {
     }
 
 
-    /**
-     * get command line arguments
-     *
-     * @return
-     */
     private String getCreator() {
-        if (options.getOption(Parameters.OPTIONS_CREATOR) != null) {
-            return options.getOption(Parameters.OPTIONS_CREATOR);
+        if (options.getCreator() != null) {
+            return options.getCreator();
         }
         return DEFAULT_CREATOR;
     }
 
-    public void run(CmdArgsParser options) {
+    public void run(Configuration options) {
         try {
             SimpleDateFormat fmt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             Date startd = new Date();
             DateTime start = new DateTime(startd);
             this.options = options;
-            BASE_DIR = options.getOption(Parameters.OPTIONS_BASE_DIR);
+//            BASE_DIR = options.getBaseDir();
             logger.debug("Running BRMS Import Generator (started " + fmt.format(startd) + "):");
 
             logger.debug("Scanning directories...");
             Map<String, PackageFile> details = PackageFile.buildPackages(options);
 
             logger.debug("Generating 'Guvnor import data'...");
-            String guvnorImport = generateImportFile(details);
-            File guvnorImportFile = getFile(options.getOption(Parameters.OPTIONS_OUTPUT_FILE));
+            setPackages(details);
+            String guvnorImport = generateImportFile();
+            File guvnorImportFile = getFile(options.getOutputFile());
             logger.debug("Writing 'Guvnor import data to disk' (" + guvnorImportFile.getAbsolutePath() + ")");
-            FileIOHelper.write(guvnorImport, guvnorImportFile);
+            IOUtils.write(guvnorImport.getBytes(), new FileOutputStream(guvnorImportFile));
 
-            if (options.getOption(Parameters.OPTIONS_KAGENT_CHANGE_SET_FILE) != null) {
+            if (options.getKagentChangeSetFile() != null) {
                 logger.debug("Generating 'Knowledge agent changeset' data...");
                 String kagentChangeSet = generateKnowledgeAgentInitFile(details);
-                File kagentChangeSetFile = getFile(options.getOption(Parameters.OPTIONS_KAGENT_CHANGE_SET_FILE));
+                File kagentChangeSetFile = getFile(options.getKagentChangeSetFile());
                 logger.debug("Writing 'Knowledge agent changeset' to disk (" + kagentChangeSetFile.getAbsolutePath() + ")");
-                FileIOHelper.write(kagentChangeSet, kagentChangeSetFile);
+                IOUtils.write(kagentChangeSet.getBytes(), new FileOutputStream(kagentChangeSetFile));
             }
 
             DateTime end = new DateTime(System.currentTimeMillis());

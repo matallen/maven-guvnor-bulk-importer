@@ -19,10 +19,8 @@ package org.jboss.drools.guvnor.importgenerator;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -45,16 +43,10 @@ import org.drools.builder.KnowledgeBuilderError;
 import org.drools.builder.KnowledgeBuilderFactory;
 import org.drools.builder.ResourceType;
 import org.drools.common.DroolsObjectOutputStream;
-import org.drools.compiler.DroolsError;
-import org.drools.compiler.DroolsParserException;
-import org.drools.compiler.PackageBuilder;
 import org.drools.decisiontable.InputType;
 import org.drools.decisiontable.SpreadsheetCompiler;
 import org.drools.definition.KnowledgePackage;
 import org.drools.io.ResourceFactory;
-import org.drools.rule.Package;
-import org.jboss.drools.guvnor.importgenerator.CmdArgsParser.Parameters;
-import org.jboss.drools.guvnor.importgenerator.utils.DroolsHelper;
 import org.jboss.drools.guvnor.importgenerator.utils.FileIOHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,7 +79,7 @@ public class PackageFile implements Comparator<Integer> {
         return modelFiles;
     }
 
-    public void setModelFiles(File[] files) throws UnsupportedEncodingException {
+    public void setModelFiles(File[] files) throws FileNotFoundException, IOException {
         for (File modelFile : files) {
             if (!modelFile.exists()) {
                 throw new RuntimeException("model file does not exist [" + modelFile.getAbsolutePath() + "]");
@@ -104,13 +96,13 @@ public class PackageFile implements Comparator<Integer> {
      * @return
      * @throws Exception
      */
-    public static Map<String, PackageFile> buildPackages(CmdArgsParser options) throws IOException {
-        String path = options.getOption(Parameters.OPTIONS_PATH);
-        FUNCTIONS_FILE = options.getOption(Parameters.OPTIONS_FUNCTIONS_FILE);
+    public static Map<String, PackageFile> buildPackages(Configuration options) throws IOException {
+        String path = options.getPath();
+        FUNCTIONS_FILE = options.getFunctionFileName();
         Map<String, PackageFile> result = new HashMap<String, PackageFile>();
         File location = new File(path);
         if (!location.isDirectory()) {
-            throw new IllegalStateException("path (" + path + ") must be a directory");
+            throw new IllegalStateException("<path> value (" + location.getCanonicalPath() + ") must be a directory");
         }
         buildPackageForDirectory(result, location, options);
         return result;
@@ -129,17 +121,13 @@ public class PackageFile implements Comparator<Integer> {
      * @throws FileNotFoundException
      * @throws UnsupportedEncodingException
      */
-    private static void buildPackageForDirectory(Map<String, PackageFile> packages, File directory, CmdArgsParser options)
-            throws IOException {
-        boolean recurse = "true".equals(options.getOption(Parameters.OPTIONS_RECURSIVE));
+    private static void buildPackageForDirectory(Map<String, PackageFile> packages, File directory, Configuration options) throws IOException {
+        boolean recurse = "true".equals(options.getRecursive());
 
-        File[] files = directory.listFiles(
-                new FilenameFilter() {
+        File[] files = directory.listFiles(new FilenameFilter() {
                     public boolean accept(File dir, String name) {
                         return !name.startsWith(".");
-                    }
-                }
-        );
+                    }});
         for (int i = 0; i < files.length; i++) {
             //if it's a directory with files then build a package
             if (files[i].isDirectory()) {
@@ -152,7 +140,7 @@ public class PackageFile implements Comparator<Integer> {
                     packageFile.setModelFiles(modelFiles);
                 }
                 if (ruleFiles.length > 0) {
-                    packageFile = parseRuleFiles(packageFile, ruleFiles, options);
+                    packageFile = parseRuleFiles(packageFile, ruleFiles);
                 }
                 if (packageFile.containsAssets())
                     packages.put(packageFile.getName(), packageFile);
@@ -171,9 +159,9 @@ public class PackageFile implements Comparator<Integer> {
         });
     }
 
-    private static File[] getRuleFiles(File directory, CmdArgsParser options) {
+    private static File[] getRuleFiles(File directory, Configuration options) {
         if (directory.isDirectory()) {
-            final String extensionList = options.getOption(Parameters.OPTIONS_EXTENSIONS);
+            final String extensionList = options.getFileExtensions();
             File[] files = directory.listFiles(new FilenameFilter() {
                 public boolean accept(File dir, String name) {
                     return !name.startsWith(".") && name.matches(buildRE(extensionList));
@@ -189,25 +177,21 @@ public class PackageFile implements Comparator<Integer> {
         return new File[]{};
     }
 
-    private static PackageFile parseRuleFiles(PackageFile result, File[] ruleFiles, CmdArgsParser options) throws IOException {
-//      System.out.println("XXXXX file.length = "+ ruleFiles.length + "="+ ruleFiles[0].getName());
+    private static PackageFile parseRuleFiles(PackageFile result, File[] ruleFiles) throws IOException {
         for (int i = 0; i < ruleFiles.length; i++) {
             File file = ruleFiles[i];
             if (file.getName().endsWith(".drl")) {
-//              System.out.println("XXXXXXX found DRL");  
-              parseDrlFile(file, result, options);
+              parseDrlFile(file, result);
             } else if (file.getName().endsWith(".xls")) {
-//              System.out.println("XXXXXXX found XLS");
-                parseXlsFile(file, result, options);
+                parseXlsFile(file, result);
             } else if (file.getName().endsWith(".bpmn") || file.getName().endsWith(".bpmn2")) {
-//              System.out.println("XXXXXXX found BPM");
-                parseBpmFile(file, result, options);
+                parseBpmFile(file, result);
             }
         }
         return result;
     }
 
-    private static void parseBpmFile(File file, PackageFile packageFile, CmdArgsParser options) throws FileNotFoundException, UnsupportedEncodingException {
+    private static void parseBpmFile(File file, PackageFile packageFile) throws FileNotFoundException, UnsupportedEncodingException {
       String content;
       try {
           content = FileUtils.readFileToString(file);
@@ -218,14 +202,14 @@ public class PackageFile implements Comparator<Integer> {
       packageFile.getRuleFiles().put(file.getName(), file);
     }
     
-    private static void parseXlsFile(File file, PackageFile packageFile, CmdArgsParser options) throws FileNotFoundException, UnsupportedEncodingException {
+    private static void parseXlsFile(File file, PackageFile packageFile) throws IOException {
         String content = FileIOHelper.readAllAsBase64(file);
         packageFile.getRules().put(file.getName(), new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file));
         packageFile.getRuleFiles().put(file.getName(), file);
     }
 
 
-    private static void parseDrlFile(File file, PackageFile packageFile, CmdArgsParser options) throws FileNotFoundException {
+    private static void parseDrlFile(File file, PackageFile packageFile) throws FileNotFoundException {
         String content;
         try {
             content = FileUtils.readFileToString(file);
@@ -247,7 +231,7 @@ public class PackageFile implements Comparator<Integer> {
                 String ruleContents = content.substring(ruleLoc, endLoc);
                 ruleLoc = getRuleStart(content, endLoc);
                 moreRules = ruleLoc >= 0;
-                Rule rule = new Rule(findRuleName(ruleContents, options), ruleContents, file);
+                Rule rule = new Rule(findRuleName(ruleContents), ruleContents, file);
                 packageFile.getRules().put(rule.getRuleName(), rule);
                 packageFile.getRuleFiles().put(rule.getRuleName(), file);
             }
@@ -281,9 +265,6 @@ public class PackageFile implements Comparator<Integer> {
 //          System.out.println("BPMN = "+bpmn2);
 //          builder.add(ResourceFactory.newByteArrayResource(bpmn2.getBytes()), ResourceType.BPMN2);
           builder.add(ResourceFactory.newFileResource(e.getValue()), ResourceType.BPMN2);
-//          new org.jbpm.bpmn2.BPMN2ProcessProviderImpl();
-//          org.drools.compiler.BPMN2ProcessProvider x;
-          
         }
         if (null!=drl)
           builder.add(ResourceFactory.newByteArrayResource(drl.getBytes()), ResourceType.DRL);
@@ -424,7 +405,7 @@ public class PackageFile implements Comparator<Integer> {
      * @param options
      * @return
      */
-    private static String getPackageName(File directory, CmdArgsParser options) {
+    private static String getPackageName(File directory, Configuration options) {
         String startPath = directory.getPath();
         Matcher m = Pattern.compile("([^/|\\\\]+)").matcher(startPath); // quad-backslash is for windows paths
         List<String> lpath = new ArrayList<String>();
@@ -434,9 +415,9 @@ public class PackageFile implements Comparator<Integer> {
         StringBuffer sb = new StringBuffer();
         for (int i = path.length - 1; i >= 0; i--) {
             String dir = path[i];
-            if ((dir.matches(options.getOption(Parameters.OPTIONS_PACKAGE_EXCLUDE))))
+            if ((dir.matches(options.getPackageExclude())))
                 continue;
-            if ((dir.equals(options.getOption(Parameters.OPTIONS_PACKAGE_START))))
+            if ((dir.equals(new File(options.getPath()).getName())))
                 break; //since we are working in reverse, it's time to exit
             sb.insert(0, PACKAGE_DELIMETER).insert(0, dir);
         }
@@ -478,7 +459,7 @@ public class PackageFile implements Comparator<Integer> {
      * @param ruleContents
      * @return
      */
-    private static String findRuleName(String ruleContents, CmdArgsParser options) {
+    private static String findRuleName(String ruleContents) {
         //TODO: this is incorrect - what if a rule starts 'rule"rule1"'??? use the getRuleStart method to find the beginning
         String name = ruleContents.substring(ruleContents.indexOf(PH_RULE_START) + PH_RULE_START.length(), ruleContents.indexOf(PH_NEWLINE)).replaceAll("\"", "").trim();
         if (!name.matches("[^'^/^<^>.]+")) { //Guvnor seems to not like some characters

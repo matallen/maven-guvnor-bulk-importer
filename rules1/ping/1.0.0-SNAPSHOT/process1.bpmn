@@ -12,7 +12,7 @@
              xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
              xmlns:tns="http://www.jboss.org/drools">
 
-  <process processType="Private" isExecutable="true" id="com.sample.bpmn" name="process1" tns:packageName="ping.test" >
+  <process processType="Private" isExecutable="true" id="MyProcess1" name="process1" tns:packageName="ping" >
 
     <!-- nodes -->
     <startEvent id="_1" name="StartProcess" />
@@ -82,19 +82,33 @@
       </dataInputAssociation>
       <potentialOwner>
         <resourceAssignmentExpression>
-          <formalExpression></formalExpression>
+          <formalExpression>John</formalExpression>
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
+    <callActivity id="_4" name="Log" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <tns:script>System.out.println("Process has started!");</tns:script>
+        </tns:onEntry-script>
+      </extensionElements>
+      <ioSpecification>
+        <inputSet>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+    </callActivity>
 
     <!-- connections -->
     <sequenceFlow id="_3-_2" sourceRef="_3" targetRef="_2" />
-    <sequenceFlow id="_1-_3" sourceRef="_1" targetRef="_3" />
+    <sequenceFlow id="_4-_3" sourceRef="_4" targetRef="_3" />
+    <sequenceFlow id="_1-_4" sourceRef="_1" targetRef="_4" />
 
   </process>
 
   <bpmndi:BPMNDiagram>
-    <bpmndi:BPMNPlane bpmnElement="com.sample.bpmn" >
+    <bpmndi:BPMNPlane bpmnElement="MyProcess1" >
       <bpmndi:BPMNShape bpmnElement="_1" >
         <dc:Bounds x="45" y="45" width="48" height="48" />
       </bpmndi:BPMNShape>
@@ -102,15 +116,22 @@
         <dc:Bounds x="884" y="74" width="48" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="_3" >
-        <dc:Bounds x="140" y="48" width="100" height="48" />
+        <dc:Bounds x="267" y="48" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" >
+        <dc:Bounds x="133" y="133" width="110" height="48" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="_3-_2" >
-        <di:waypoint x="190" y="72" />
+        <di:waypoint x="317" y="72" />
         <di:waypoint x="908" y="98" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_1-_3" >
+      <bpmndi:BPMNEdge bpmnElement="_4-_3" >
+        <di:waypoint x="188" y="157" />
+        <di:waypoint x="317" y="72" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1-_4" >
         <di:waypoint x="69" y="69" />
-        <di:waypoint x="190" y="72" />
+        <di:waypoint x="188" y="157" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
