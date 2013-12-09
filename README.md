@@ -38,7 +38,13 @@ Usage:
 					<snapshotName>1.0.0-SNAPSHOT</snapshotName>
 					
 					<!-- will upload the specified model jar to every package 
-					<modelFile>${project.build.directory}/domain-1.0.0-SNAPSHOT.jar</modelFile>
+					<models>
+						<model>
+							<groupId>org.jboss.super</groupId>
+							<artifactId>business-rules-domain</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+						</model>						
+					</models>
 					-->
 					<!-- will look for an include the following functions file in each rule package
 					<functionFileName>functions.txt</functionFileName>
