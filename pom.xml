@@ -18,10 +18,17 @@
 	
 	<groupId>org.drools.maven</groupId>
 	<artifactId>maven-guvnor-bulk-importer</artifactId>
-	<version>5.3.10000.BRMS</version>
-	
+	<version>5.3.10001.BRMS</version>
 	<packaging>maven-plugin</packaging>
-	<description>Bulk imports files into the Guvnor repository</description>
+	
+	<description>
+		Bulk imports files into the Guvnor repository
+		
+		Change log:
+		5.3.10000.BRMS - added bpmn process capability
+		5.3.10001.BRMS - added multiple models
+	</description>
+	
 
 	<profiles>
 		<profile>
@@ -178,6 +185,7 @@
 		</profile>
      -->
 		<!-- 
+		 -->
 		<profile>
 			<id>gen</id>
 			<activation>
@@ -188,7 +196,10 @@
 					<plugin>
                     	<groupId>org.drools.maven</groupId>
 						<artifactId>maven-guvnor-bulk-importer</artifactId>
-						<version>5.3.10000.BRMS</version>
+						<!-- 
+						<version>5.3.10001.BRMS</version>
+						 -->
+						<version>${project.version}</version>
                     	<executions>
 							<execution>
 								<id></id>
@@ -210,10 +221,21 @@
 									<outputFile>guvnor-import.xml</outputFile>
 									<snapshotName>1.0.0-SNAPSHOT</snapshotName>
 									
-									<modelFile>${project.build.directory}/domain-1.0.0-SNAPSHOT.jar</modelFile>
+									<models>
+										<model>
+											<groupId>org.jboss.super</groupId>
+											<artifactId>business-rules-domain</artifactId>
+											<version>1.0.0-SNAPSHOT</version>
+										</model>
+										<!-- 
+										<model>${project.build.directory}/domain-1.0.0-SNAPSHOT.jar</model>
+										 -->
+									</models>
+									<!-- 
 									<functionFileName>functions.txt</functionFileName>
 									<kagentChangeSetServer>http://localhost:8080/org.drools.guvnor.Guvnor/package/</kagentChangeSetServer>
 									<kagentChangeSetFile>kagent-changeset.xml</kagentChangeSetFile>
+									 -->
 									
 								</configuration>
 							</execution>
@@ -222,7 +244,6 @@
 				</plugins>
 			</build>
 		</profile>
-		 -->
 	</profiles>
 
 	<build>

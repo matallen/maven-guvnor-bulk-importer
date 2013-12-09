@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- GENERATED_GUVNOR_IMPORT -->
-<sv:node xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-  xmlns:rep="internal" xmlns:fn_old="http://www.w3.org/2004/10/xpath-functions"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:drools="http://www.jboss.org/drools-repository/1.0"
-  xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
-  xmlns:fn="http://www.w3.org/2005/xpath-functions" sv:name="drools:repository">
+<sv:node sv:name="drools:repository"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions" 
+	xmlns:fn_old="http://www.w3.org/2004/10/xpath-functions"
+	xmlns:drools="http://www.jboss.org/drools-repository/1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+	xmlns:sv="http://www.jcp.org/jcr/sv/1.0" 
+	xmlns:rep="internal" 
+	xmlns:nt="http://www.jcp.org/jcr/nt/1.0" 
+  >
   <sv:property sv:name="jcr:primaryType" sv:type="Name"><sv:value>nt:folder</sv:value></sv:property>
   <sv:property sv:name="jcr:created" sv:type="Date"><sv:value>{3}</sv:value></sv:property>
   <sv:node sv:name="drools:package_area">

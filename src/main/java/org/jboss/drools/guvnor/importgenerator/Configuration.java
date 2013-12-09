@@ -1,10 +1,12 @@
 package org.jboss.drools.guvnor.importgenerator;
 
+import java.io.File;
+import java.util.List;
+
 public interface Configuration{
-  public String getDebug();
-  public String getDebugExtra();
+  public boolean getDebug();
+  public boolean getDebugExtra();
   public String getPath();
-//  public String getPackageStart();
   public String getPackageExclude();
   public String getRecursive();
   public String getCreator();
@@ -14,6 +16,6 @@ public interface Configuration{
   public String getFunctionFileName();
   public String getKagentChangeSetServer();
   public String getKagentChangeSetFile();
-//  public String getBaseDir();
-  public String getModelFile();
+//  public String getModelFile();
+  public List<File> getModelFiles();
 }

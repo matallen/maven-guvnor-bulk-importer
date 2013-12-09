@@ -26,9 +26,11 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -43,20 +45,21 @@ import org.joda.time.Seconds;
  */
 public class ImportFileGenerator implements Constants {
     class Logger{
-      public void debug(String msg){System.out.println(msg);}
+      public void debug(String msg){if (msg.contains("%"))System.out.print(msg);else System.out.println(msg);}
       public void error(String msg, Throwable t){System.err.println(msg); t.printStackTrace();}
       public void trace(String msg){System.out.println(msg);}
     }
     protected final Logger logger=new Logger();
-    private Configuration options=null;
+    private Configuration config=null;
     private String BASE_DIR = System.getProperty("user.dir");
 
     public enum PackageObjectType {PACKAGE, PACKAGE_SNAPSHOT, MODEL}
 
     public enum RuleObjectType {RULE, SNAPSHOT_RULE}
-
+    
+    /* this is so the Mojo compiler doesnt balk if it sees generateImportFile() with the packages param */
     private Map<String, PackageFile> packages;
-    private void setPackages(Map<String, PackageFile> packages){
+    public void setPackages(Map<String, PackageFile> packages){
       this.packages=packages;
     }
     
@@ -72,6 +75,17 @@ public class ImportFileGenerator implements Constants {
         StringBuffer packageContents = new StringBuffer();
         StringBuffer snapshotContents = new StringBuffer();
         double i = 0;
+        
+        // reorder so that globalArea is first
+        LinkedHashMap<String, PackageFile> packages2=new LinkedHashMap<String, PackageFile>();
+        if (packages.get("globalArea")!=null){
+          packages2.put("globalArea", packages.get("globalArea"));
+          packages.remove("globalArea");
+        }
+        for(Entry<String, PackageFile> e:packages.entrySet())
+          packages2.put(e.getKey(), e.getValue());
+        this.packages=packages2;
+        
         for (Map.Entry<String, PackageFile> packagesEntry : packages.entrySet()) {
             String packageName = packagesEntry.getKey();
             double pct = (int) (++i / (double) packages.size() * 100);
@@ -94,13 +108,14 @@ public class ImportFileGenerator implements Constants {
                 Rule rule = (Rule) rulesEntry.getValue();
                 context.put("file", rule.getFile());
                 context.put("rule", rule);
-                String format = FilenameUtils.getExtension(rule.getFile().getName());
-                context.put("format", format);
+//                String format = FilenameUtils.getExtension(rule.getFile().getName());
+//                String format=;
+                context.put("format", rule.getFormat());
                 //inject the rule values into the rule template
-                ruleContents.append(MessageFormat.format(readTemplate(MessageFormat.format(TEMPLATES_RULE, format)), getRuleObjects(context/*, RuleObjectType.RULE*/)));
+                ruleContents.append(MessageFormat.format(readTemplate(MessageFormat.format(TEMPLATES_RULE, rule.getFormat().toLowerCase())), getRuleObjects(context/*, RuleObjectType.RULE*/)));
 
                 //inject the snapshot rule values in the the snapshot rule template
-                snapshotRuleContents.append(MessageFormat.format(readTemplate(MessageFormat.format(TEMPLATES_SNAPSHOT_RULE, format)), getRuleObjects(context/*, RuleObjectType.SNAPSHOT_RULE*/)));
+                snapshotRuleContents.append(MessageFormat.format(readTemplate(MessageFormat.format(TEMPLATES_SNAPSHOT_RULE, rule.getFormat().toLowerCase())), getRuleObjects(context/*, RuleObjectType.SNAPSHOT_RULE*/)));
             }
 
             String modelTemplate = readTemplate(TEMPLATES_MODEL);
@@ -109,19 +124,30 @@ public class ImportFileGenerator implements Constants {
                 ruleContents.append(MessageFormat.format(modelTemplate, getPackageObjects(context, new StringBuffer(model.getContent()), PackageObjectType.MODEL)));
             }
             // If no models in directory but parameter specified then upload the parameterized model
-            if (packageFile.getModelFiles().size() <= 0 && options.getModelFile() != null) {
-                File modelFile = new File(options.getModelFile());
-                String modelFileContent = FileIOHelper.readAllAsBase64(modelFile);
-                context.put("model", new Model(modelFile, modelFileContent));
-                ruleContents.append(MessageFormat.format(modelTemplate, getPackageObjects(context, new StringBuffer(modelFileContent), PackageObjectType.MODEL)));
-            }
+//            String modelRefTemplate = readTemplate(TEMPLATES_MODEL_REF);
+//            PackageFile globalArea=packages.get("globalArea");
+//            if (null!=globalArea && globalArea.getModelFiles().size()>0){
+//              for(Model model:globalArea.getModelFiles()){
+//                // add a model_ref to the actual package to the globalArea models uuid
+//                context.put("model", model);
+//                ruleContents.append(MessageFormat.format(modelRefTemplate, getPackageObjects(context, new StringBuffer(model.getContent()), PackageObjectType.MODEL_REF)));
+//              }
+//            }
+            
+//            // If no models in directory but parameter specified then upload the parameterized model
+//            if (packageFile.getModelFiles().size() <= 0 && config.getModelFile() != null) {
+//                File modelFile = new File(config.getModelFile());
+//                String modelFileContent = FileIOHelper.readAllAsBase64(modelFile);
+//                context.put("model", new Model(modelFile, modelFileContent));
+//                ruleContents.append(MessageFormat.format(modelTemplate, getPackageObjects(context, new StringBuffer(modelFileContent), PackageObjectType.MODEL)));
+//            }
 
             //inject the rule(s) into the package into the package contents
             String packageTemplate = readTemplate(TEMPLATES_PACKAGE);// FileUtils.readAll(new FileInputStream(new File(TEMPLATES_FOLDER, TEMPLATES_PACKAGE)));
             packageContents.append(MessageFormat.format(packageTemplate, getPackageObjects(context, ruleContents, PackageObjectType.PACKAGE)));
 
             //inject the snapshot values into the snapshot contents
-            if (options.getSnapshotName() != null) {
+            if (config.getSnapshotName() != null) {
                 snapshotContents.append(MessageFormat.format(readTemplate(TEMPLATES_SNAPSHOT), getPackageObjects(context, snapshotRuleContents, PackageObjectType.PACKAGE_SNAPSHOT)));
             }
 
@@ -181,8 +207,8 @@ public class ImportFileGenerator implements Constants {
             String packageName = packagesEntry.getKey();
             PackageFile packageFile = packagesEntry.getValue();
             kagentChildContents.append(MessageFormat.format(kagentChildTemplate,
-                    new Object[]{options.getKagentChangeSetServer(),
-                            packageFile.getName() + "/" + options.getSnapshotName(), "PKG"}));
+                    new Object[]{config.getKagentChangeSetServer(),
+                            packageFile.getName() + "/" + config.getSnapshotName(), "PKG"}));
         }
         String kagentParentTemplate = readTemplate(TEMPLATES_KAGENT_PARENT_INIT);
         kagentInitContents.append(MessageFormat.format(kagentParentTemplate, new Object[]{kagentChildContents.toString()}));
@@ -191,7 +217,7 @@ public class ImportFileGenerator implements Constants {
 
 
     private StringBuffer getSnapshotContents(StringBuffer snapshotContents) {
-        if (options.getSnapshotName() != null) {
+        if (config.getSnapshotName() != null) {
             return snapshotContents;
         }
         return new StringBuffer("");
@@ -204,7 +230,7 @@ public class ImportFileGenerator implements Constants {
             if (null != in) {
                 return IOUtils.toString(in);
             } else {
-                File file = new File(new File(BASE_DIR, TEMPLATES_FOLDER), templateConst);
+                File file = new File(new File(BASE_DIR, /*"src/main/resources/"+*/TEMPLATES_FOLDER), templateConst);
                 try {
                     return FileUtils.readFileToString(file);
                 } catch (IOException e) {
@@ -220,6 +246,18 @@ public class ImportFileGenerator implements Constants {
         List<String> objects = new LinkedList<String>();
         PackageFile packageFile = (PackageFile) context.get("packageFile");
         switch (type) {
+//            case MODEL_REF:
+//              Model modelRef = (Model) context.get("model");
+//              objects.add(modelRef.getFile().getName().substring(0, modelRef.getFile().getName().lastIndexOf(".")));//wrapper title
+//              objects.add(getCreator());//creator
+//              objects.add(contents.toString());// packageFile.getModelAsBase64());//content
+//              objects.add(modelRef.getUuid());//uuid
+//              objects.add(modelRef.getFile().getName());//filename
+//              objects.add((String) context.get("draftStateReferenceUUID"));//state
+//              objects.add(GeneratedData.getTimestamp());//timestamp
+//              objects.add(packageFile.getName()); //package name
+//              break;
+              
             case MODEL:
                 Model model = (Model) context.get("model");
                 objects.add(model.getFile().getName().substring(0, model.getFile().getName().lastIndexOf(".")));//wrapper title
@@ -246,7 +284,7 @@ public class ImportFileGenerator implements Constants {
             case PACKAGE_SNAPSHOT:
                 objects.add(packageFile.getName());
                 objects.add(packageFile.getName().substring(packageFile.getName().lastIndexOf(".") + 1));// //aka the title
-                objects.add(options.getSnapshotName());
+                objects.add(config.getSnapshotName());
                 objects.add(getCreator()); //3
                 objects.add(packageFile.getImports()); //4
                 objects.add(contents.toString()); //5
@@ -279,7 +317,7 @@ public class ImportFileGenerator implements Constants {
         objects.add((String) context.get("categoryReferenceUUID"));
         objects.add(getCreator());
         objects.add(GeneratedData.getTimestamp());
-        objects.add((String) context.get("format"));
+        objects.add(rule.getFormat());
         objects.add(GeneratedData.generateUUID()); //base version + predecessor (currently only used in snapshot)
         if ("xls".equalsIgnoreCase((String) context.get("format"))) {
             objects.add(((File) context.get("file")).getName());
@@ -289,8 +327,8 @@ public class ImportFileGenerator implements Constants {
 
 
     private String getCreator() {
-        if (options.getCreator() != null) {
-            return options.getCreator();
+        if (config.getCreator() != null) {
+            return config.getCreator();
         }
         return DEFAULT_CREATOR;
     }
@@ -300,7 +338,7 @@ public class ImportFileGenerator implements Constants {
             SimpleDateFormat fmt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             Date startd = new Date();
             DateTime start = new DateTime(startd);
-            this.options = options;
+            this.config = options;
 //            BASE_DIR = options.getBaseDir();
             logger.debug("Running BRMS Import Generator (started " + fmt.format(startd) + "):");
 

@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
@@ -72,20 +73,27 @@ public class PackageFile implements Comparator<Integer> {
     private Map<String, File> ruleFiles = new HashMap<String, File>();
     private String name;
     private String modelContent;
-    private List<Model> modelFiles = new ArrayList<Model>();
+    private List<Model> modelFiles=null;// = new ArrayList<Model>();
 
-
+    public PackageFile(){}
+    public PackageFile(String name){
+      this.name=name;
+    }
+    
     public List<Model> getModelFiles() {
+    	if (modelFiles==null)
+    		modelFiles=new ArrayList<Model>();
         return modelFiles;
     }
 
-    public void setModelFiles(File[] files) throws FileNotFoundException, IOException {
+    
+    public void addModelFiles(File[] files) throws FileNotFoundException, IOException {
         for (File modelFile : files) {
             if (!modelFile.exists()) {
                 throw new RuntimeException("model file does not exist [" + modelFile.getAbsolutePath() + "]");
             }
             modelContent = FileIOHelper.readAllAsBase64(modelFile);
-            modelFiles.add(new Model(modelFile, modelContent));
+            getModelFiles().add(new Model(modelFile, modelContent, GeneratedData.generateUUID()));
         }
     }
 
@@ -105,6 +113,24 @@ public class PackageFile implements Comparator<Integer> {
             throw new IllegalStateException("<path> value (" + location.getCanonicalPath() + ") must be a directory");
         }
         buildPackageForDirectory(result, location, options);
+        
+//        // GLOBAL AREA - CREATE/ADD MODELS
+//        // if we have a globalArea, then add the models to that, if not then create one
+//        PackageFile globalArea=result.get("globalArea");
+//        if (null==globalArea){
+//          globalArea = new PackageFile("globalArea");
+//          result.put(globalArea.getName(), globalArea);
+//        }
+//        
+//        // if have model files then add them to the globalArea
+//        if (options.getModelFiles()!=null && options.getModelFiles().size()>0){
+//          // package wont compile without a rule, so hardcode an impossible rule
+//          Rule rule = new Rule("dummy", "rule \"dummyRuleSoThatGlobalAreaCompiles\" enabled false when String(toString==\"ajfueksnbfjdsa\") then end", null, "DRL");
+//          globalArea.getRules().put(rule.getRuleName(), rule);
+//          for(File f: options.getModelFiles())
+//            globalArea.modelFiles.add(new Model(f, FileIOHelper.readAllAsBase64(f), GeneratedData.generateUUID()));
+//        }
+        
         return result;
     }
 
@@ -122,7 +148,7 @@ public class PackageFile implements Comparator<Integer> {
      * @throws UnsupportedEncodingException
      */
     private static void buildPackageForDirectory(Map<String, PackageFile> packages, File directory, Configuration options) throws IOException {
-        boolean recurse = "true".equals(options.getRecursive());
+        boolean recurse = "true".equalsIgnoreCase(options.getRecursive());
 
         File[] files = directory.listFiles(new FilenameFilter() {
                     public boolean accept(File dir, String name) {
@@ -135,16 +161,20 @@ public class PackageFile implements Comparator<Integer> {
                 File[] modelFiles = getJarFiles(files[i]);
                 PackageFile packageFile = new PackageFile();
                 packageFile.setName(getPackageName(files[i], options));
-
-                if (modelFiles.length > 0) {
-                    packageFile.setModelFiles(modelFiles);
-                }
+                
+                // set model files embedded in directory
+                if (modelFiles.length > 0)
+                    packageFile.addModelFiles(modelFiles);
+                // set common model files in the options
+                if (options.getModelFiles().size()>0)
+                	packageFile.addModelFiles(options.getModelFiles().toArray(new File[options.getModelFiles().size()]));
+                
                 if (ruleFiles.length > 0) {
                     packageFile = parseRuleFiles(packageFile, ruleFiles);
                 }
                 if (packageFile.containsAssets())
                     packages.put(packageFile.getName(), packageFile);
-
+                
                 if (recurse)
                     buildPackageForDirectory(packages, files[i], options);
             }
@@ -198,13 +228,17 @@ public class PackageFile implements Comparator<Integer> {
       } catch (IOException e) {
           throw new IllegalArgumentException("Error reading file (" + file +")", e);
       }
-      packageFile.getRules().put(file.getName(), new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file));
+      Rule rule=new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file, "bpmn");
+//      rule.setFormat("BPMN2");// FilenameUtils.getExtension(file.getName()));
+      packageFile.getRules().put(file.getName(), rule);
       packageFile.getRuleFiles().put(file.getName(), file);
     }
     
     private static void parseXlsFile(File file, PackageFile packageFile) throws IOException {
         String content = FileIOHelper.readAllAsBase64(file);
-        packageFile.getRules().put(file.getName(), new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file));
+        Rule rule=new Rule(file.getName().substring(0, file.getName().lastIndexOf(".")), content, file, FilenameUtils.getExtension(file.getName()).toLowerCase());
+//        rule.setFormat(FilenameUtils.getExtension(file.getName()));
+        packageFile.getRules().put(file.getName(), rule);
         packageFile.getRuleFiles().put(file.getName(), file);
     }
 
@@ -231,7 +265,7 @@ public class PackageFile implements Comparator<Integer> {
                 String ruleContents = content.substring(ruleLoc, endLoc);
                 ruleLoc = getRuleStart(content, endLoc);
                 moreRules = ruleLoc >= 0;
-                Rule rule = new Rule(findRuleName(ruleContents), ruleContents, file);
+                Rule rule = new Rule(findRuleName(ruleContents), ruleContents, file, "drl");
                 packageFile.getRules().put(rule.getRuleName(), rule);
                 packageFile.getRuleFiles().put(rule.getRuleName(), file);
             }
@@ -240,6 +274,7 @@ public class PackageFile implements Comparator<Integer> {
         }
     }
 
+    
     /**
      * compiles the rule files into a package and generates any error details
      *
@@ -248,8 +283,14 @@ public class PackageFile implements Comparator<Integer> {
     public void buildPackage() throws IOException {
       KnowledgeBuilder builder=KnowledgeBuilderFactory.newKnowledgeBuilder();
       
+      if (name.equalsIgnoreCase("globalArea") && getRuleFiles().size()<=0 && getRules().size()>0){
+        // then this is most likely a generated globalArea, so compile the dummy rule only
+        for(Entry<String, Rule> e:getRules().entrySet())
+          builder.add(ResourceFactory.newByteArrayResource(e.getValue().getContent().getBytes()), ResourceType.DRL);
+      }
+      
       for (Map.Entry<String, File> e:getRuleFiles().entrySet()) {
-        if (FUNCTIONS_FILE != null) {
+        if (FUNCTIONS_FILE != null && e.getValue()!=null) {
           File functionsFile = new File(e.getValue().getParentFile().getPath(), FUNCTIONS_FILE);
           if (functionsFile.exists())
             builder.add(ResourceFactory.newFileResource(functionsFile), ResourceType.DRL);
@@ -501,10 +542,6 @@ public class PackageFile implements Comparator<Integer> {
 
     public String getCompilationErrors() {
         return compilationErrors;
-    }
-
-    public void setCompilationErrors(String compilationErrors) {
-        this.compilationErrors = compilationErrors;
     }
 
     public boolean hasCompilationErrors() {

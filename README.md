@@ -4,9 +4,13 @@ maven-guvnor-bulk-importer
 Drools Guvnor importer forked from the droolsjbpm 5.x branch
 
 New features added since branching from droolsjbpm:
-* support for bpmn2 processes (knowledge bases and snapshots)
-* made into maven mojo
-* changed version into release version to prevent SNAPSHOT updates during build process
+* 5.3.10000.BRMS - support for bpmn2 processes (knowledge bases and snapshots)
+* 5.3.10000.BRMS - made into maven mojo
+* 5.3.10000.BRMS - changed version into release version to prevent SNAPSHOT updates during build process
+* 5.3.10001.BRMS - support for multiple model files directly from a maven repo using its GAV
+
+Coming up:
+* 5.3.10002.BRMS - support for global models and references from packages to reduce repo size
 
 Usage:
 ======

@@ -25,6 +25,7 @@ public class Rule {
     private String ruleName;
     private String content;
     private File file;
+    private String format;
 
     /**
      * Std constructor used within the PackageFile parser
@@ -32,16 +33,21 @@ public class Rule {
      * @param ruleName
      * @param content
      */
-    public Rule(String ruleName, String content, File file) {
+    public Rule(String ruleName, String content, File file, String format) {
         this.ruleName = ruleName;
         this.content = content;
         this.file = file;
+        this.format=format;
     }
-
+    public String getFormat() {
+      return format;
+    }
+    public void setFormat(String format) {
+      this.format = format;
+    }
     public File getFile() {
         return file;
     }
-
     public String getRuleName() {
         return ruleName;
     }

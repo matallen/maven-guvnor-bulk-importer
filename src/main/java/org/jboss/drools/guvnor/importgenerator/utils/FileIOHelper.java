@@ -32,6 +32,7 @@ public class FileIOHelper {
   public static final String FORMAT = "utf-8";
 
   public static String readAllAsBase64(File file) throws FileNotFoundException, IOException {
+//    if (true) return "XXXXXXX";
     byte[] bytes = IOUtils.toByteArray(new FileInputStream(file));
     return toBase64(bytes);
   }
